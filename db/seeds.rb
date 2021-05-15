@@ -31,7 +31,7 @@ end
       description: "大粒イチゴのショートケーキ#{n + 1}",
       price: "#{400 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
-      image: open("./app/assets/images/cake.jpg")
+      image_id: open("./app/assets/images/cake.jpg")
     )
   end
   4.times do |n|
@@ -40,7 +40,7 @@ end
       description: "口どけなめらかなプリン#{n + 1}",
       price: "#{200 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
-      image: open("./app/assets/images/pudding.jpg")
+      image_id: open("./app/assets/images/pudding.jpg")
     )
   end
   5.times do |n|
@@ -49,7 +49,7 @@ end
       description: "香ばしい焼き菓子#{n + 1}",
       price: "#{200 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
-      image: open("./app/assets/images/cookie.jpg")
+      image_id: open("./app/assets/images/cookie.jpg")
     )
   end
   3.times do |n|
@@ -58,6 +58,6 @@ end
       description: "小腹が空いたときにピッタリ!#{n + 1}",
       price: "#{120 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
-      image: open("./app/assets/images/candy.jpg")
+      image_id: open("./app/assets/images/candy.jpg")
     )
   end
