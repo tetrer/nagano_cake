@@ -11,7 +11,7 @@ class Public::AddressesController < ApplicationController
     # @address.customer_id = current_customer_id   #テスト時はログインしてないのでコメントアウト中
     @address.customer_id = "1"   #テスト時用の記述（本番は削除）
     @address.save
-    redirect_to public_address_path(@address)
+    redirect_to address_path(@address)
   end
 
   def edit
@@ -21,13 +21,13 @@ class Public::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     @address.update(address_params)
-    redirect_to public_addresses_path
+    redirect_to addresses_path
   end
 
   def destroy
     @address =Address.find(params[:id])
     @address.destroy
-    redirect_to public_addresses_path
+    redirect_to addresses_path
   end
 
   private

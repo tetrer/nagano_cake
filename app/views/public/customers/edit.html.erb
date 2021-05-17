@@ -1,7 +1,7 @@
 <h2>会員情報編集</h2>
 
 <div>
-  <%= form_with( model:@customer, url: public_customer_path, local:true) do |f| %>
+  <%= form_with( model:@customer, url: customer_path, local:true) do |f| %>
     <table class="table table-bordered">
       <tbody>
         <tr>
@@ -32,8 +32,8 @@
         </tr>
       </tbody>
     </table>
-    
+
     <%= f.submit "編集内容を保存", class: "btn btn-success" %>
-    
+
   <% end %>
 </div>
