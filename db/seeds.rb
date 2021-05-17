@@ -61,3 +61,6 @@ end
       image_id: open("./app/assets/images/candy.jpg")
     )
   end
+  Genre.create!(
+    name: "キャンディ"
+  )
