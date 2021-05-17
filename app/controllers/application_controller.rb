@@ -3,10 +3,12 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    if customer_signed_in?
+    case resource
+    when Customer
       root_path
-    else
-      admin_top_path
+    when Admin
+      # 一旦root_path。後から注文履歴一覧(管理者トップページ)へ変更
+      root_path
     end
   end
 
