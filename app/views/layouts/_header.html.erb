@@ -11,10 +11,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto navbar-light bg-light">
           <% if customer_signed_in? %>
-            <li class="header-name">ようこそ、さん！</li>
+            <li class="header-name">ようこそ、<%= full_name(current_customer) %>さん！</li>
             <li><%= link_to "マイページ", new_customer_session_path, class: "btn glyphicon glyphicon-home" %></li>
             <li><%= link_to "商品一覧", new_customer_session_path, class: "btn glyphicon glyphicon-briefcase" %></li>
-            <li><%= link_to "カート",  new_customer_session_path, class: "" %></li>
+            <li><%= link_to "カート",  new_customer_session_path, class: "btn" %></li>
             <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn glyphicon glyphicon-log-out" %></li>
 
           <% elsif admin_signed_in? %>
