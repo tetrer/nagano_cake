@@ -15,8 +15,8 @@
     Customer.create!(
       first_name: "名#{n + 1}",
       last_name: "姓#{n + 1}",
-      kana_first_name: "セイ",
-      kana_last_name: "メイ",
+      kana_first_name: "メイ",
+      kana_last_name: "セイ",
       postal_code: "1234567",
       address: "東京都渋谷区神南1丁目19-11 パークウェースクエア24階#{n + 1}",
       phone_number: "09012345678",
