@@ -1,0 +1,9 @@
+<h1>商品一覧(全<%= @products.count %>件)</h1>
+
+<%= @products.each do |product| %>
+  <%= attachment_image_tag(product, :image, :fill, 100, 100, format: 'jpeg' ,fallback: "cake.jpg") %></br>
+  <%= product.name %>
+  <%= product.price %>
+<% end %>
+
+<%= paginate @products %>
