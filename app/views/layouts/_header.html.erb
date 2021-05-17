@@ -1,0 +1,32 @@
+<header>
+    <nav class="navbar navbar-light bg-light">
+      <% if admin_signed_in? %>
+        <%= link_to "NaganoCAKE", root_path, class: "fas fa-birthday-cake" %>
+      <% else %>
+        <%= link_to "NaganoCAKE", root_path, class: "fas fa-birthday-cake" %>
+      <% end %>
+    </nav>
+    <nav>
+      <ul class="navbar navbar-light bg-light">
+        <% if customer_signed_in? %>
+          <li class="header-name">ようこそ、さん！</li>
+          <li><%= link_to "マイページ", new_customer_session_path, class: "header_btn glyphicon glyphicon-home" %></li>
+          <li><%= link_to "商品一覧", new_customer_session_path, class: "header_btn glyphicon glyphicon-briefcase" %></li>
+          <li><%= link_to "カート",  new_customer_session_path, class: "" %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %></li>
+
+        <% elsif admin_signed_in? %>
+          <li><%= link_to "商品一覧", new_customer_session_path, class: "header_btn glyphicon glyphicon-briefcase" %></li>
+          <li><%= link_to "会員一覧", new_customer_session_path, class: "header_btn glyphicon glyphicon-user"  %></li>
+          <li><%= link_to "注文履歴一覧", new_customer_session_path, class: "header_btn glyphicon glyphicon-list-alt" %></li>
+          <li><%= link_to "ジャンル一覧", new_customer_session_path, class: "header_btn glyphicon glyphicon-th-list" %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %></li>
+
+        <% else %>
+          <li><%= link_to "商品一覧", new_customer_session_path, class: "header_btn glyphicon glyphicon-briefcase" %></li>
+          <li><%= link_to "新規登録", new_customer_registration_path, class: "header_btn glyphicon glyphicon-edit" %></li>
+          <li><%= link_to "ログイン", new_customer_session_path, class: "header_btn glyphicon glyphicon-log-in" %></li>
+        <% end %>
+      </ul>
+    </nav>
+</header>
