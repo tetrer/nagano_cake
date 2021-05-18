@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_18_072749) do
+=======
+ActiveRecord::Schema.define(version: 2021_05_18_092457) do
+>>>>>>> 6055c4f937fd13d6c82a1db28dc534c77e14bab2
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -61,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_072749) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "freight"
@@ -70,6 +75,10 @@ ActiveRecord::Schema.define(version: 2021_05_18_072749) do
     t.string "postal_code"
     t.string "address"
     t.integer "order_status"
+=======
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+>>>>>>> 6055c4f937fd13d6c82a1db28dc534c77e14bab2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

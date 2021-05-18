@@ -13,7 +13,20 @@
  *= require_tree .
  *= require_self
  */
-
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+*{
+  pading: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.light-gray {
+  background-color: #eeeeee;
+}
+
+.product-box {
+  padding-right: 20px;
+ }
