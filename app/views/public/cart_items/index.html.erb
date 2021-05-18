@@ -1,7 +1,15 @@
-<h2>ショッピングカートの中身</h2>
+<div class="row">
+  <div class="pull-left mx-auto">
+    <h2>ショッピングカート</h2>
+  </div>
+  <div class="pull-right mx-auto">
+    <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>
+
 
 <div class="row">
-  <div class="col-8">
+  <div class="col-12 mx-auto">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -39,6 +47,29 @@
   </div>
 </div>
 
+<div class="row mx-auto">
+  <div class="col-3 mx-auto">
+    <%= link_to "買い物を続ける", products_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="col-4 mx-auto"></div>
+
+  <div class="col-3 mx-auto">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>合計金額</th>
+          <td>
+            <%= (@subtotal * 1.1).round %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="row">
-  <%= link_to "買い物を続ける", products_path, class: "btn btn-primary" %>
+  <div class="mx-auto">
+    <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
+  </div>
 </div>

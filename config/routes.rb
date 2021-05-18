@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :public do
-    resources :customers, only: [:show, :edit, :update, :quit, :out]
+    resource :customers, only: [:update, :quit, :out, :show, :edit]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :orders, only: [:new, :confirm, :create, :complete, :index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :products, only: [:index, :show]
   end
+
+  delete 'cart_items' => 'public/cart_items#destroy_all'
 
   root 'public/homes#top'
   get 'about' => 'public/homes#about'

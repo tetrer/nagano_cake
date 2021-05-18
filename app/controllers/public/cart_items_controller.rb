@@ -5,6 +5,13 @@ class Public::CartItemsController < ApplicationController
     # @cart_items = CartItem.where(customer_id: "1")   #テスト時用の記述（本番は削除）
     @cart_items = CartItem.all
 
+
+    @cart_items.each do |item|
+      @subtotal = (@subtotal.to_i + item.product.price * item.quantity)
+    end
+
+    # @subtotal = @cart_items.product.sum(:price)
+
   end
 
   def create
@@ -28,8 +35,13 @@ class Public::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
 
-  # def destroy.all
-  # end
+  def destroy_all
+    # @cart_items = CartItem.where(customer_id: 'current_customer_id')   #テスト時はログインしてないのでコメントアウト中
+    # @cart_items = CartItem.where(customer_id: "1")   #テスト時用の記述（本番は削除）
+    @cart_items = CartItem.all
+    @cart_items.destroy_all
+    redirect_to cart_items_path
+  end
 
   private
 
