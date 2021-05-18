@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     end
   end
 
+  delete 'cart_items' => 'public/cart_items#destroy_all'
+  
   scope module: :admin do
     devise_for :admins, controllers: {
       sessions:      'admin/admins/sessions',
