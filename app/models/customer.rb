@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :last_name, :first_name, :kana_last_name, :kana_first_name,
-            :adsress, :phone_number,
+            :address, :phone_number,
             presence: true
   validates :postal_code, length: { is: 7 }, numericality: { only_integer: true }
   validates :phone_number, length: { in: 10..11 }, numericality: { only_integer: true }
