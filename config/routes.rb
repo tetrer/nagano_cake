@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :genres, only: [:index, :create, :edit, :update]
+  end
   get 'addresses/index'
   get 'addresses/create'
   get 'addresses/edit'
   get 'addresses/update'
   get 'addresses/destroy'
-  devise_for :admins
-  devise_for :customers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :public do
@@ -16,4 +17,22 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
   end
 
+  root 'public/homes#top'
+  get 'about' => 'public/homes#about'
+
+  scope module: :admin do
+    devise_for :admins, controllers: {
+      sessions:      'admin/admins/sessions',
+      passwords:     'admin/admins/passwords',
+      registrations: 'admin/admins/registrations'
+    }
+  end
+
+  scope module: :public do
+    devise_for :customers, controllers: {
+      sessions:      'public/customers/sessions',
+      passwords:     'public/customers/passwords',
+      registrations: 'public/customers/registrations'
+    }
+  end
 end
