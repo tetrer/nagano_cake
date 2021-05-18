@@ -10,10 +10,15 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :customers, only: [:show, :edit, :update, :quit, :out]
+    resource  :customers, only: [:show, :edit, :update, :quit, :out]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
-    resources :orders, only: [:new, :confirm, :create, :complete, :index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get  'complete'
+      end
+    end
   end
 
   scope module: :admin do
