@@ -1,0 +1,35 @@
+<div class= "container">
+  <div class= "row">
+    <div class= "col-md-5 col-md-offset-1">
+      <h2>商品詳細</h2>
+      <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg") %>
+    </div>
+
+    <div class= "col-md-6">
+      商品名 <%= @product.name %></br>
+
+      <div class="product-description">
+        商品説明 <%= @product.description %><br>
+      </div>
+
+      ジャンル <%= @product.genre_id %>
+
+      <div class="product-price">
+        税込価格                    
+        (税抜価格)
+        ¥ <%= (@product.price * 1.1).round %>(<%= @product.price %>)円
+      </div>
+
+      <div class="product-status">
+        販売ステータス
+        <% if @product.is_valid == true %>
+      	  <p class="text-success">販売中</p>
+        <% elsif @product.is_valid == false %>
+      	  <p class="text-muted">販売停止中</p>
+        <% end %>
+      </div>
+
+　　　<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-sm btn-success" %></td>
+    </div>
+  </div>
+</div>

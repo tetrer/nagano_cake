@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about' => 'public/homes#about'
 
   namespace :admin do
+    resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show, :update]
     resources :order_details, only: [:update]
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     resource  :customers, only: [:show, :edit, :update, :quit, :out]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :cart_items, only: [:index, :create, :update, :destroy]
+    resources :products, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
