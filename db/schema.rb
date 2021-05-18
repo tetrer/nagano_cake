@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_05_15_103906) do
 
   create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email"
+    t.string "encrypted_password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -25,19 +25,19 @@ ActiveRecord::Schema.define(version: 2021_05_15_103906) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email"
+    t.string "encrypted_password"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "kana_last_name", null: false
-    t.string "kana_first_name", null: false
-    t.string "postal_code", null: false
-    t.string "address", null: false
-    t.string "phone_number", null: false
-    t.boolean "is_deleted", default: false, null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "kana_last_name"
+    t.string "kana_first_name"
+    t.string "postal_code"
+    t.string "address"
+    t.string "phone_number"
+    t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 2021_05_15_103906) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "genre_id", null: false
-    t.string "name", null: false
-    t.text "description", null: false
-    t.integer "price", null: false
-    t.string "image_id", null: false
-    t.boolean "is_valid", default: true, null: false
+    t.integer "genre_id"
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.string "image_id"
+    t.boolean "is_valid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
