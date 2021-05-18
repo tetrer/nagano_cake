@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+
+  root 'public/homes#top'
+  get 'about' => 'public/homes#about'
+
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_details, only: [:update]
   end
-  get 'addresses/index'
-  get 'addresses/create'
-  get 'addresses/edit'
-  get 'addresses/update'
-  get 'addresses/destroy'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :public do
     resources :customers, only: [:show, :edit, :update, :quit, :out]
@@ -15,9 +15,6 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :confirm, :create, :complete, :index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
   end
-
-  root 'public/homes#top'
-  get 'about' => 'public/homes#about'
 
   scope module: :admin do
     devise_for :admins, controllers: {
