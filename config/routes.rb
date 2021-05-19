@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   delete 'cart_items' => 'public/cart_items#destroy_all'
 
   root 'public/homes#top'
