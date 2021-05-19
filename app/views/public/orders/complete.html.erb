@@ -1,2 +1,7 @@
-<h1>Public::Orders#complete</h1>
-<p>Find me in app/views/public/orders/complete.html.erb</p>
+<% provide(:title, "ありがとうございました！") %>
+<div class="row">
+  <div class="col-xs-12 mx-auto  text-center">
+    <h1>ご注文ありがとうございました！</h1><br>
+    <%= link_to "注文履歴はこちら", orders_path, class: "btn btn-info" %>
+  </div>
+</div>
