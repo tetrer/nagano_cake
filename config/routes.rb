@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
   end
 
+
   delete 'cart_items' => 'public/cart_items#destroy_all'
 
   root 'public/homes#top'
