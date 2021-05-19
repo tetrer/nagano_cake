@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'customers/quit' => 'public/customers#quit'
   patch 'customers/out' => 'public/customers#out'
 
+
   delete 'cart_items' => 'public/cart_items#destroy_all'
 
   root 'public/homes#top'
