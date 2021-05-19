@@ -34,13 +34,15 @@ class Public::CartItemsController < ApplicationController
 
     @cart_item = CartItem.new(cart_item_params)     #空のインスタンス取得
     @cart_item.customer_id = current_customer.id     #カスタマーIDの紐付け
-    @Duplicate_cart_item = CartItem.find_by(product_id: @cart_item.product.id, customer_id: current_customer.id)     #Product_IDの被っているItemを探す
+
+    duplicate_cart_item = CartItem.find_by(product_id: @cart_item.product.id, customer_id: current_customer.id)     #Product_IDの被っているItemを探す
     if not params[:cart_item][:quantity].empty? == true     #カートが空ではなく、
-      if @Duplicate_cart_item                               #被っているものがあれば
-        @cart_item.quantity += @Duplicate_cart_item.quantity     #数を足し合わせて、
-        @Duplicate_cart_item.destroy                             #がぶっているものを消す
+      if duplicate_cart_item                               #被っているものがあれば
+        @cart_item.quantity += duplicate_cart_item.quantity     #数を足し合わせて、
+        duplicate_cart_item.destroy                             #がぶっているものを消す
       end
     end
+
     @cart_item.save
 
     redirect_to cart_items_path
