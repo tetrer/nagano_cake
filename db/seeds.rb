@@ -12,7 +12,7 @@
   )
 
 
-4.times do |n|
+40.times do |n|
     Customer.create!(
       first_name: "名#{n + 1}",
       last_name: "姓#{n + 1}",
