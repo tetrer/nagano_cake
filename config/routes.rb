@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resource  :customers, only: [:show, :edit, :update, :quit, :out]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :products, only: [:index, :show]
@@ -21,9 +20,13 @@ Rails.application.routes.draw do
         get  'complete'
       end
     end
+    resource  :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'quit'
+        patch 'out'
+      end
+    end
   end
-  get 'customers/quit' => 'public/customers#quit'
-  patch 'customers/out' => 'public/customers#out'
 
   delete 'cart_items' => 'public/cart_items#destroy_all'
 
