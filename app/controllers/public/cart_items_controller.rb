@@ -41,7 +41,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    @cart_items = CartItem.where(customer_id: 'current_customer_id')   #テスト時はログインしてないのでコメントアウト中
+    @cart_items = current_customer.cart_items   #テスト時はログインしてないのでコメントアウト中
     @cart_items.destroy_all
     redirect_to cart_items_path
   end
@@ -50,7 +50,6 @@ class Public::CartItemsController < ApplicationController
 
   def cart_item_params
     params.require(:cart_item).permit(:product_id,
-                                     :customer_id,
                                      :quantity)
   end
 end
