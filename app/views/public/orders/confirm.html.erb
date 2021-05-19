@@ -60,7 +60,7 @@
       <tr>
         <th>お届け先</th>
         <!-- ToDo: 配送先が表示されない -->
-        <td class="text-left"><%= "〒#{@order.postal_code} #{@order.address} #{@order.name}" %></td>
+        <td class="text-left">〒<%= "#{@order.postal_code} #{@order.address} #{@order.name}" %></td>
       </tr>
     </table>
 

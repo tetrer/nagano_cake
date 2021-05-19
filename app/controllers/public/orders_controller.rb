@@ -17,20 +17,20 @@ class Public::OrdersController < ApplicationController
     @order.total_price = billing(@order)
 
     # addressにaddressの値がはいっていれば
-    if params[:order][:address] == "address"
+    if params[:order][:address_option] == "address"
       @order.postal_code = current_customer.postal_code
       @order.address     = current_customer.address
       @order.name        = current_customer.last_name + current_customer.first_name
 
     # addressにshipping_addressの値がはいっていれば
-    elsif params[:order][:address] == "shipping_address"
+    elsif params[:order][:address_option] == "shipping_address"
       ship = Address.find(params[:order][:address_id])
       @order.postal_code = ship.postal_code
       @order.address     = ship.address
       @order.name        = ship.name
 
     # addressにnew_addressの値がはいっていれば
-    elsif params[:order][:address] == "new_address"
+    elsif params[:order][:address_option] == "new_address"
       @order.postal_code = params[:order][:postal_code]
       @order.address     = params[:order][:address]
       @order.name        = params[:order][:name]
