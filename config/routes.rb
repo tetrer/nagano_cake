@@ -5,13 +5,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
   end
-
-
-  get 'addresses/index'
-  get 'addresses/create'
-  get 'addresses/edit'
-  get 'addresses/update'
-  get 'addresses/destroy'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :public do
