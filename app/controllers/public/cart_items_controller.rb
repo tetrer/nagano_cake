@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  include ApplicationHelper
 
   def index
     @cart_items = CartItem.where(customer_id: current_customer.id)   #テスト時はログインしてないのでコメントアウト中
@@ -61,9 +62,9 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    # @cart_items = CartItem.where(customer_id: 'current_customer_id')   #テスト時はログインしてないのでコメントアウト中
+    @cart_items = CartItem.where(customer_id: 'current_customer_id')   #テスト時はログインしてないのでコメントアウト中
     # @cart_items = CartItem.where(customer_id: "1")   #テスト時用の記述（本番は削除）
-    @cart_items = CartItem.all
+    # @cart_items = CartItem.all
     @cart_items.destroy_all
     redirect_to cart_items_path
   end

@@ -41,14 +41,14 @@
 
               <tr>
                 <td class="align-middle"><%= attachment_image_tag item.product, :image, size: "60x40", format: 'jpeg' ,fallback: "cake.jpg" %>　　<%= item.product.name %></td>
-                <td class="align-middle"><%= ((item.product.price * 1.1).round).to_s(:delimited) %></td>
+                <td class="align-middle"><%= ((item.product.price * 1.1).floor).to_s(:delimited) %></td>
                 <td class="align-middle">
                   <%= form_with( model: @cart_items, url: cart_item_path(item.id), method: :patch, local:true) do |f| %>
                     <%= f.select :quantity, options_for_select([["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"]], item.quantity ) %>
                     <%= f.submit '変更', class: 'btn btn-outline-success btn-sm quantity-btn' %>
                   <% end %>
                 </td>
-                <td class="align-middle"><%= ((item.quantity * item.product.price * 1.1).round).to_s(:delimited) %></td>
+                <td class="align-middle"><%= ((item.quantity * item.product.price * 1.1).floor).to_s(:delimited) %></td>
                 <td class="align-middle">
                   <%= link_to 'X 削除する', cart_item_path(item.id), method: :delete, class: 'btn btn-outline-danger' %>
                 </td>
@@ -78,7 +78,7 @@
                   <tr>
                     <th>合計金額</th>
                     <td>
-                      <%= ((@subtotal * 1.1).round).to_s(:delimited) %>
+                      <%= ((@subtotal * 1.1).floor).to_s(:delimited) %>
                     </td>
                   </tr>
                 </tbody>
