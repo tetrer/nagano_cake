@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_05_18_072749) do
-=======
-ActiveRecord::Schema.define(version: 2021_05_18_092457) do
->>>>>>> 6055c4f937fd13d6c82a1db28dc534c77e14bab2
+ActiveRecord::Schema.define(version: 2021_05_18_114714) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -46,26 +42,41 @@ ActiveRecord::Schema.define(version: 2021_05_18_092457) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "email"
-    t.string "encrypted_password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "kana_last_name"
-    t.string "kana_first_name"
-    t.string "postal_code"
-    t.string "address"
-    t.string "phone_number"
-    t.boolean "is_deleted"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "kana_last_name", null: false
+    t.string "kana_first_name", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.integer "subtotal_price"
+    t.integer "production_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "freight"
@@ -75,10 +86,6 @@ ActiveRecord::Schema.define(version: 2021_05_18_092457) do
     t.string "postal_code"
     t.string "address"
     t.integer "order_status"
-=======
-  create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
->>>>>>> 6055c4f937fd13d6c82a1db28dc534c77e14bab2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
