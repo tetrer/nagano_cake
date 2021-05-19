@@ -14,6 +14,6 @@ class ChangeColumn < ActiveRecord::Migration[5.2]
     change_column :customers, :created_at, :datetime, null: false
     change_column :customers, :updated_at, :datetime, null: false
 
-    
+
   end
 end

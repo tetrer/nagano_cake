@@ -12,7 +12,7 @@
   )
 
 
-40.times do |n|
+  4.times do |n|
     Customer.create!(
       first_name: "名#{n + 1}",
       last_name: "姓#{n + 1}",
@@ -24,14 +24,17 @@
       email: "test#{n + 1}@test.com",
       password: "123456"
     )
-end
+  end
 
-Genre.create!([
-  {name: "ケーキ"},
-  {name: "プリン"},
-  {name: "焼き菓子"},
-  {name: "キャンディ"}
-])
+
+  Genre.create!([
+    {name: "ケーキ"},
+    {name: "プリン"},
+    {name: "焼き菓子"},
+    {name: "キャンディ"}
+  ])
+
+
 
   6.times do |n|
     product = Product.new(
@@ -132,3 +135,4 @@ Genre.create!([
     quantity: "1"
   )
 
+ 
