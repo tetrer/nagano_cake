@@ -37,16 +37,16 @@
   <div class="col-xs-3">
     <table class="table table-hover table-condensed table-bordered">
         <tr>
-          <th class="info">送料</th>
+          <th>送料</th>
           <td class="text-right col-xs-5">¥<%= @order.freight %></td>
         </tr>
         <tr>
-          <th class="info">商品合計</th>
+          <th>商品合計</th>
           <td class="text-right">¥<%= total_price(@cart_items).to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th class="info">請求金額</th>
-          <td class="text-right">¥<%#= billing(@order).to_s(:delimited) %></td>
+          <th>請求金額</th>
+          <td class="text-right">¥<%= billing(@order).to_s(:delimited) %></td>
         </tr>
     </table>
   </div>
@@ -54,16 +54,16 @@
   <div class="col-xs-9">
     <table class="table table-hover table-condensed table-bordered">
       <tr>
-        <th  class="info">支払方法</th>
+        <th>支払方法</th>
         <td class="text-left"><%= @order.payment_method %></td>
       </tr>
       <tr>
-        <th class="info">お届け先</th>
+        <th>お届け先</th>
+        <!-- ToDo: 配送先が表示されない -->
         <td class="text-left"><%= "〒#{@order.postal_code} #{@order.address} #{@order.name}" %></td>
       </tr>
     </table>
 
-    <!-- 表示とformを分けて記入 -->
     <div class ="col-xs-11">
       <%= form_with(model: @order, url: orders_path, method: :post, local: true) do |f| %>
         <%= f.hidden_field :postal_code %>
@@ -71,9 +71,11 @@
         <%= f.hidden_field :name %>
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price %>
-        <%= link_to "注文情報入力へ戻る", new_order_path, class: "btn btn-info col-xs-3" %>
-        <%= f.submit "注文を確定する", class: "btn btn-warning col-xs-5" %>
+        <%= f.hidden_field :ship, value: @ship %>
+        <%= link_to "注文情報入力へ戻る", new_order_path, class: "btn btn-secondary col-xs-3" %>
+        <%= f.submit "注文を確定する", class: "btn btn-success col-xs-5" %>
       <% end %>
     </div>
+
   </div>
 </div>
