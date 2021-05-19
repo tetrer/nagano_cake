@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :products, only: [:index, :show]
+
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
       collection do
         get 'quit'
         patch 'out'
+
       end
     end
   end
@@ -45,4 +47,5 @@ Rails.application.routes.draw do
       registrations: 'public/customers/registrations'
     }
   end
+
 end
