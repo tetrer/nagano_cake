@@ -1,4 +1,5 @@
 class Admin::OrderDetailsController < ApplicationController
+<<<<<<< HEAD
   include ApplicationHelper
   
   def update
@@ -22,5 +23,9 @@ class Admin::OrderDetailsController < ApplicationController
     def order_detail_params
       params.require(:order_detail).permit(:produciton_status)
     end
+=======
+
+  def update
+>>>>>>> origin/develop
   end
 end

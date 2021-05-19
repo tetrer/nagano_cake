@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+<<<<<<< HEAD
   include ApplicationHelper
   
   def index
@@ -21,3 +22,14 @@ class Admin::OrdersController < ApplicationController
   end
 
 end
+=======
+  def show
+  end
+
+  def index
+  end
+
+  def update
+  end
+end
+>>>>>>> origin/develop

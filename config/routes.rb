@@ -8,35 +8,33 @@ Rails.application.routes.draw do
         resource :order_details, only: [:update]
       end
     end
+
+  root 'public/homes#top'
+  get 'about' => 'public/homes#about'
+
   end
 
-
-  get 'addresses/index'
-  get 'addresses/create'
-  get 'addresses/edit'
-  get 'addresses/update'
-  get 'addresses/destroy'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   scope module: :public do
-    resource :customers, only: [:update, :quit, :out, :show, :edit]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
-    resources :orders, only: [:new, :confirm, :create, :complete, :index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :products, only: [:index, :show]
-    resources :orders, only: [:new, :index, :create, :show ] do
+
+    resources :orders, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
-        get 'complete'
+        get  'complete'
+      end
+    end
+    resource  :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'quit'
+        patch 'out'
+
       end
     end
   end
 
-
   delete 'cart_items' => 'public/cart_items#destroy_all'
-
-  root 'public/homes#top'
-  get 'about' => 'public/homes#about'
 
   scope module: :admin do
     devise_for :admins, controllers: {
