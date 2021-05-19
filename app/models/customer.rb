@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items
+  has_many :orders
 
   validates :last_name, :first_name, :kana_last_name, :kana_first_name,
             :address, :phone_number,
