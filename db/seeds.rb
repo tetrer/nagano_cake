@@ -26,7 +26,6 @@
     )
   end
 
-  
 
   Genre.create!([
     {name: "ケーキ"},
@@ -136,3 +135,4 @@
     quantity: "1"
   )
 
+ 

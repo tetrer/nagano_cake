@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :products, only: [:index, :new, :create, :show, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update]
-    resources :orders, only: [:index, :show, :update] do
-      member do
-        resource :order_details, only: [:update]
-      end
-    end
-
   root 'public/homes#top'
   get 'about' => 'public/homes#about'
 
+  namespace :admin do
+    resources :products, only: [:index, :new, :create, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_details, only: [:update]
   end
 
   scope module: :public do

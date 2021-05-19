@@ -1,13 +1,13 @@
 class Admin::OrdersController < ApplicationController
-<<<<<<< HEAD
   include ApplicationHelper
-  
+
   def index
     @orders = Order.all.page(params[:page]).per(10)
   end
 
   def show
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   def update
@@ -22,14 +22,4 @@ class Admin::OrdersController < ApplicationController
   end
 
 end
-=======
-  def show
-  end
 
-  def index
-  end
-
-  def update
-  end
-end
->>>>>>> origin/develop
