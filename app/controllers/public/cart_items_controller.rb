@@ -1,19 +1,18 @@
 class Public::CartItemsController < ApplicationController
 
   def index
-    @cart_items = CartItem.where(customer_id: 'current_customer.id')   #テスト時はログインしてないのでコメントアウト中
+    @cart_items = CartItem.where(customer_id: current_customer.id)   #テスト時はログインしてないのでコメントアウト中
     # @cart_items = CartItem.where(customer_id: "1")   #テスト時用の記述（本番は削除）
     # @cart_items = CartItem.all   #テスト時用の記述（本番は削除）
 
-    if !@cart_items.nil?
+
+    if !@cart_items.present?
       @subtotal = 0
     else
       @cart_items.each do |item|
         @subtotal = (@subtotal.to_i + item.product.price * item.quantity)
       end
     end
-
-
 
     # @subtotal = current_customer.cart_items.products.all.sum(:price)
     # @subtotal = @cart_items.product.sum(:price)
