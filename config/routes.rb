@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root 'public/homes#top'
   get 'about' => 'public/homes#about'
 
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-  end
+  # namespace :admin do
+  #   get 'customers/index'
+  #   get 'customers/show'
+  #   get 'customers/edit'
+  #   get 'customers/update'
+  # end
   namespace :admin do
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
