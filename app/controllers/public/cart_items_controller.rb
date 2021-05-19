@@ -9,7 +9,6 @@ class Public::CartItemsController < ApplicationController
     @cart_items.each do |item|
       @subtotal = (@subtotal.to_i + item.product.price * item.quantity)
     end
-
     # @subtotal = current_customer.cart_items.products.all.sum(:price)
     # @subtotal = @cart_items.product.sum(:price)
 
