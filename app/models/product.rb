@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :genre
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
   attachment :image
 
   validates :genre_id, :name, :price, presence: true

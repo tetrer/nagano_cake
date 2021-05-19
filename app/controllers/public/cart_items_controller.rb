@@ -4,8 +4,6 @@ class Public::CartItemsController < ApplicationController
     @cart_items = CartItem.where(customer_id: current_customer.id)   #テスト時はログインしてないのでコメントアウト中
     # @cart_items = CartItem.where(customer_id: "1")   #テスト時用の記述（本番は削除）
     # @cart_items = CartItem.all   #テスト時用の記述（本番は削除）
-
-
     if !@cart_items.present?
       @subtotal = 0
     else
