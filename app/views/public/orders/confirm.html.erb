@@ -16,14 +16,14 @@
         <% @cart_items.each do |cart| %>
           <tr>
             <td class="text-left">
-              <%= attachment_image_tag( cart.product, :image, size: "60x50", fallback: "no_image.jpg") %>
+              <%= attachment_image_tag(cart.product, :image, size: "60x50", fallback: "no_image.jpg") %>
               <%= cart.product.name %>
             </td>
             <td class="text-right">
-              ¥<%= tax_price(cart.product.tax_out_price).to_s(:delimited) %>
+              ¥<%= tax_price(cart.product.price).to_s(:delimited) %>
             </td>
             <td class="text-right">
-                <%= cart.quantity %>
+              <%= cart.quantity %>
             </td>
             <td class="text-right">
               ¥<%= sub_price(cart).to_s(:delimited) %>
@@ -46,7 +46,7 @@
         </tr>
         <tr>
           <th class="info">請求金額</th>
-          <td class="text-right">¥<%= billing(@order).to_s(:delimited) %></td>
+          <td class="text-right">¥<%#= billing(@order).to_s(:delimited) %></td>
         </tr>
     </table>
   </div>
@@ -72,7 +72,6 @@
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price %>
         <%= link_to "注文情報入力へ戻る", new_order_path, class: "btn btn-info col-xs-3" %>
-        　<i class="fas fa-shipping-fast fa-2x"></i>
         <%= f.submit "注文を確定する", class: "btn btn-warning col-xs-5" %>
       <% end %>
     </div>

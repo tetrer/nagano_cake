@@ -17,6 +17,10 @@ module ApplicationHelper
 		customer.kana_last_name + customer.kana_first_name
 	end
 
+	def current_cart
+		@cart_items = current_customer.cart_items
+	end
+
   # 税込価格
   def tax_price(price)
     (price * 1.1).floor
@@ -38,7 +42,7 @@ module ApplicationHelper
 
   # 請求額（商品価格小計+送料）
   def billing(order)
-    total_price(current_customer.cart_items) + order.freight
+    total_price(current_cart) + order.freight
   end
 
 end

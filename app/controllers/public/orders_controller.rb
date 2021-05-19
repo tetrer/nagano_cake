@@ -14,7 +14,7 @@ class Public::OrdersController < ApplicationController
     )
 
     # total_priceに請求額を代入
-    @order.total_price = billing(@order)
+    # @order.total_price = billing(@order)
 
     # addressにaddressの値がはいっていれば
     if params[:order][:address] == "address"
