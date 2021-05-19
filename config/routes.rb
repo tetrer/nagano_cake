@@ -22,9 +22,11 @@ Rails.application.routes.draw do
       end
     end
   end
+  get 'customers/quit' => 'public/customers#quit'
+  patch 'customers/out' => 'public/customers#out'
 
   delete 'cart_items' => 'public/cart_items#destroy_all'
-  
+
   scope module: :admin do
     devise_for :admins, controllers: {
       sessions:      'admin/admins/sessions',
