@@ -11,7 +11,7 @@ class Public::AddressesController < ApplicationController
     # @address.customer_id = current_customer_id   #テスト時はログインしてないのでコメントアウト中
     @address.customer_id = "1"   #テスト時用の記述（本番は削除）
     @address.save
-    redirect_to address_path(@address)
+    redirect_to addresses_path
   end
 
   def edit
