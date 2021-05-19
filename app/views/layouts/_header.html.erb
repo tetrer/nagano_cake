@@ -12,21 +12,21 @@
         <ul class="navbar-nav ml-auto navbar-light bg-light">
           <% if customer_signed_in? %>
             <li>ようこそ、<%= full_name(current_customer) %>さん！</li>
-            <li><%= link_to "マイページ", new_customer_session_path, class: "btn glyphicon glyphicon-home" %></li>
-            <li><%= link_to "商品一覧", new_customer_session_path, class: "btn glyphicon glyphicon-briefcase" %></li>
-            <li><%= link_to "カート",  new_customer_session_path, class: "btn" %></li>
-            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn glyphicon glyphicon-log-out" %></li>
+            <li><%= link_to "マイページ", customers_path, class: "btn" %></li>
+            <li><%= link_to "商品一覧", products_path, class: "btn" %></li>
+            <li><%= link_to "カート",  cart_items_path, class: "btn" %></li>
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn" %></li>
 
           <% elsif admin_signed_in? %>
-            <li><%= link_to "商品一覧", new_customer_session_path, class: "btn glyphicon glyphicon-briefcase" %></li>
-            <li><%= link_to "会員一覧", new_customer_session_path, class: "btn glyphicon glyphicon-user"  %></li>
-            <li><%= link_to "注文履歴一覧", new_customer_session_path, class: "btn glyphicon glyphicon-list-alt" %></li>
-            <li><%= link_to "ジャンル一覧", new_customer_session_path, class: "btn glyphicon glyphicon-th-list" %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn glyphicon glyphicon-log-out" %></li>
+            <li><%= link_to "商品一覧", new_customer_session_path, class: "btn" %></li>
+            <li><%= link_to "会員一覧", new_customer_session_path, class: "btn"  %></li>
+            <li><%= link_to "注文履歴一覧", new_customer_session_path, class: "btn" %></li>
+            <li><%= link_to "ジャンル一覧", new_customer_session_path, class: "btn" %></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn" %></li>
 
           <% else %>
             <li><%= link_to "About", about_path, class: "btn" %></li>
-            <li><%= link_to "商品一覧", new_customer_session_path, class: "btn " %></li>
+            <li><%= link_to "商品一覧", products_path, class: "btn" %></li>
             <li><%= link_to "新規登録", new_customer_registration_path, class: "btn" %></li>
             <li><%= link_to "ログイン", new_customer_session_path, class: "btn" %></li>
           <% end %>
