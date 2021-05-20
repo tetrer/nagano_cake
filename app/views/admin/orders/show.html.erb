@@ -61,7 +61,7 @@
               <td><%= order_detail.quantity %></td>
               <td><%= order_detail.subtotal_price.to_s(:delimited) %></td>
               <td>
-                <%= form_with( model: @order_details, url: admin_order_detail_path(order_detail), method: :patch, local:true) do |f| %>
+                <%= form_with( model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch, local:true) do |f| %>
                   <%= f.select :production_status, OrderDetail.production_statuses.keys %>
                   <%= f.submit "更新", class:"btn btn-success" %>
                 <% end %>

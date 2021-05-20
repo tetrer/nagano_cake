@@ -43,7 +43,7 @@
           <% if @customer.is_deleted == true %>
             <td>無効</td>
           <% else %>
-            <td style="color: #00ff00">有効</td>
+            <td class="is_deleted_text">有効</td>
           <% end %>
         </tr>
       </tbody>
@@ -51,12 +51,10 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row btn-row">
   <div class="col-8 mx-auto">
     <div>
-      <%= link_to "編集する", edit_admin_customer_path(@customer), class: 'btn btn-sm btn-success' %>
-    </div>
-    <div>
+      <%= link_to "編集する", edit_admin_customer_path(@customer), class: 'btn btn-sm btn-success customer_edit_btn' %>
       <%= link_to "注文履歴一覧を見る", admin_orders_path(@customer), class: 'btn btn-sm btn-primary' %>
     </div>
   </div>
