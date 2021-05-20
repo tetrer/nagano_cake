@@ -1,6 +1,6 @@
 class Public::ProductsController < ApplicationController
   include ApplicationHelper
-  before_action :authenticate!, except: [:index]
+  before_action :authenticate_customer!, only: [:show]
 
   def index
     @products = Product.all

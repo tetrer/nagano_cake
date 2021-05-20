@@ -13,6 +13,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new (product_params)
+    @genres = Genre.all
     if @product.save
       flash[:notice] = "You have created product successfully"
       redirect_to admin_product_path(@product.id)
@@ -32,6 +33,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @genres = Genre.all
     if @product.update(product_params)
       flash[:notice] = "You have updated product successfully."
       redirect_to admin_product_path(@product)
