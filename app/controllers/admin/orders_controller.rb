@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
   include ApplicationHelper
+  # before_action :authenticate_admin!
 
   def index
     @orders = Order.all.page(params[:page]).per(10)
@@ -13,6 +14,7 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    flash[:notice] = "You have updated order successfully."
     redirect_to admin_order_path(@order)
   end
 

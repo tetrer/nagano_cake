@@ -12,7 +12,7 @@
       </div>
 
       <div class="product-price">
-        ¥ <%= (@product.price * 1.1).round %> (税込)
+        ¥ <%= tax_price(@product.price).to_s(:delimited) %> (税込)
       </div>
 
 　　　<%= form_with( model: [@product, @cart_item], url: cart_items_path, method: :post, local:true) do |f| %>

@@ -12,12 +12,12 @@
         商品説明 <%= @product.description %><br>
       </div>
 
-      ジャンル <%= @product.genre_id %>
+      ジャンル <%= @product.genre.name %>
 
       <div class="product-price">
-        税込価格                    
+        税込価格
         (税抜価格)
-        ¥ <%= (@product.price * 1.1).round %>(<%= @product.price %>)円
+        ¥ <%= tax_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>)円
       </div>
 
       <div class="product-status">

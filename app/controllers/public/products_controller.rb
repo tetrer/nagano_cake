@@ -1,12 +1,14 @@
 class Public::ProductsController < ApplicationController
+  include ApplicationHelper
+  before_action :authenticate!, except: [:index]
+
   def index
     @products = Product.all
-    @products = Product.page(params[:page])
+    @products = Product.all.page(params[:page]).per(8)
   end
 
   def show
     @product = Product.find(params[:id])
-    # @product.save
     @cart_item = CartItem.new
   end
 

@@ -2,7 +2,7 @@
   <div class= "row">
     <div class= "col-lg-12">
       <h1>
-        商品一覧<span class= "small">(全<%= @products.count %>件)</span>
+        商品一覧<span class= "small">(全<%= @products.total_count %>件)</span>
       </h1>
 
       <div class= "d-flex flex-wrap">
@@ -12,7 +12,7 @@
               <%= attachment_image_tag(product, :image, size: "250x200", format: 'jpeg' ,fallback: "cake.jpg") %></br>
             <% end %>
             <%= link_to product.name, product_path(product) %></br>
-            ¥ <%= product.price %>
+            ¥ <%= product.price.to_s(:delimited) %>
           </div>
         <% end %>
       </div>
