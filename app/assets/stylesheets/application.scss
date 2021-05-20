@@ -39,6 +39,17 @@ footer {
   height: 100px;
 }
 
+フラッシュメッセージ
 #notice {
   color: green;
+
+// スタイリッシュな四角形クラス
+.triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid #ddd;
+  border-right: 50px solid #ccc;
+  border-left: 50px solid #bbb;
+  border-bottom: 50px solid #aaa;
 }

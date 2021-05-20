@@ -18,10 +18,10 @@
             <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn" %></li>
 
           <% elsif admin_signed_in? %>
-            <li><%= link_to "商品一覧", new_customer_session_path, class: "btn" %></li>
-            <li><%= link_to "会員一覧", new_customer_session_path, class: "btn"  %></li>
-            <li><%= link_to "注文履歴一覧", new_customer_session_path, class: "btn" %></li>
-            <li><%= link_to "ジャンル一覧", new_customer_session_path, class: "btn" %></li>
+            <li><%= link_to "商品一覧", admin_products_path, class: "btn" %></li>
+            <li><%= link_to "会員一覧", admin_customers_path, class: "btn"  %></li>
+            <li><%= link_to "注文履歴一覧", admin_orders_path, class: "btn" %></li>
+            <li><%= link_to "ジャンル一覧", admin_genres_path, class: "btn" %></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn" %></li>
 
           <% else %>
