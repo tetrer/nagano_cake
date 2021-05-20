@@ -21,7 +21,7 @@
           <td><%= link_to product.name, admin_product_path(product) %></td>
 
           <td><%= product.price %></td>
-          <td><%= product.genre_id %></td>
+          <td><%= product.genre.name %></td>
           <td>
             <% if product.is_valid == true %>
       				<p class="text-success">販売中</p>
