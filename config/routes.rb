@@ -6,14 +6,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
     resources :order_details, only: [:update]
   end
 
   scope module: :public do
+    resources :products, only: [:index, :show]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    resources :products, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
