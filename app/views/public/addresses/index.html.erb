@@ -1,21 +1,65 @@
-<h2>配送先登録/一覧</h2>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col">
+    <h4 class="bg-light mx-auto">配送先登録/一覧</h4>
+  </div>
+  <div class="col-8"></div>
+</div>
 
-  <%= form_with( model: @address_new, url: addresses_path, local:true) do |f| %>
+<div class="row">
+  <div class="col-2"></div>
+  <div>
+    <table class="table table-bordered">
+      <%= form_with( model: @address_new, url: addresses_path, local:true) do |f| %>
+        <tbody>
+          <tr>
+            <th>郵便番号（ハイフンなし）</th>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= f.text_field :address, size: "60x20" %></td>
+          </tr>
+          <tr>
+            <th>宛先</th>
+            <td><%= f.text_field :name %></td>
+            <td class="form-group"><%= f.submit '新規登録', class: 'btn btn-sm btn-success opinion_field' %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-6"></div>
+</div>
 
-    <p>郵便番号（ハイフンなし）</p>
-    <%= f.text_field :postal_code %>
-    <p>住所</p>
-    <%= f.text_field :address %>
-    <p>宛先</p>
-    <%= f.text_field :name %>
-    <div class="form-group">
-      <%= f.submit '新規登録', class: 'btn btn-sm btn-success opinion_field' %>
+<div class="row mx-auto">
+  <div class="col-2"></div>
+  <% if flash[:succsss].present? %>
+    <div class="alert alert-success">
+      <%= flash[:success] %>
     </div>
   <% end %>
+  <% if flash[:alert].present? %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+</div>
 
+
+<div class="row table-row">
+
+  <% if !@addresses.present? %>
+  <div class="row mx-auto">
+    <h5 class="mx-auto">配送先が登録されていません。</h5>
+  </div>
+
+  <% else %>
+
+  <div class="col-2"></div>
   <div>
-    <table>
-      <thead>
+    <table class="table table-bordered">
+      <thead class="thead-light">
         <tr>
           <th>郵便番号</th>
           <th>住所</th>
@@ -24,18 +68,17 @@
         </tr>
       </thead>
       <tbody>
-
       <% @addresses.each do |address| %>
-
-          <tr>
-            <td><%= address.postal_code %></td>
-            <td><%= address.address %></td>
-            <td><%= address.name %></td>
-            <td><%= link_to '編集する', edit_address_path(address.id), class: 'btn btn-success' %>　<%= link_to '削除する', address_path(address.id), method: :delete, class: 'btn btn-danger' %></td>
-          </tr>
-
+        <tr>
+          <td><%= address.postal_code %></td>
+          <td><%= address.address %></td>
+          <td><%= address.name %></td>
+          <td><%= link_to '編集する', edit_address_path(address.id), class: 'btn btn-success' %>　<%= link_to '削除する', address_path(address.id), method: :delete, class: 'btn btn-danger' %></td>
+        </tr>
       <% end %>
-
       </tbody>
     </table>
   </div>
+  <div class="col-2"></div>
+  <% end %>
+</div>
