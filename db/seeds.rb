@@ -5,13 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+  #管理者
   Admin.create!(
     email: ENV['ADMIN_MAIL'],
     password: ENV['ADMIN_PASS']
   )
 
-
+  #会員サンプル
   4.times do |n|
     Customer.create!(
       first_name: "名#{n + 1}",
@@ -25,7 +25,8 @@
       password: "123456"
     )
   end
-
+  
+  #退会した会員サンプル
   Customer.create!(
     first_name: "志多男",
     last_name: "大海",
@@ -39,7 +40,7 @@
     is_deleted: true
   )
 
-
+  #デフォルトのジャンル
   Genre.create!([
     {name: "ケーキ"},
     {name: "プリン"},
@@ -57,16 +58,13 @@
       price: "#{400 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
     )
-    # 画像を読みこんで、画像オブジェクトを作る。
-    File.open("./app/assets/images/cake#{n}.jpg") do |file|
+    File.open("./app/assets/images/cake#{n}.jpg") do |file|   # 画像を読みこんで、画像オブジェクトを作る。
       product.image = file
     end
-
-    # 画像のidを取得できる。
-    product.image_id = product.image.id
-
+    product.image_id = product.image.id                       # 画像のidを取得できる。
     product.save
   end
+  
   2.times do |n|
     n = n + 1
     m = n + 2
@@ -77,63 +75,44 @@
       price: "#{350 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
     )
-    # 画像を読みこんで、画像オブジェクトを作る。
     File.open("./app/assets/images/cake#{m}.jpg") do |file|
       product.image = file
     end
-
-    # 画像のidを取得できる。
     product.image_id = product.image.id
-
     product.save
   end
-
+  
   4.times do |n|
     product = Product.new(
       genre_id: 2,
       name: "プリン#{n + 1}",
       description: "口どけなめらかなプリン#{n + 1}",
-
       price: "#{200 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
     )
-    # 画像を読みこんで、画像オブジェクトを作る。
-
     File.open("./app/assets/images/pudding.jpg") do |file|
       product.image = file
     end
-
-    # 画像のidを取得できる。
     product.image_id = product.image.id
-
     product.save
   end
-
 
   5.times do |n|
     product = Product.new(
       genre_id: 3,
       name: "焼き菓子#{n + 1}",
       description: "香ばしい焼き菓子#{n + 1}",
-
       price: "#{200 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
     )
-    # 画像を読みこんで、画像オブジェクトを作る。
-
     File.open("./app/assets/images/cookie.jpg") do |file|
       product.image = file
     end
-
-    # 画像のidを取得できる。
     product.image_id = product.image.id
-
     product.save
   end
 
-
   3.times do |n|
-
     product = Product.new(
       genre_id: 4,
       name: "キャンディ#{n + 1}",
@@ -141,19 +120,14 @@
       price: "#{120 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
     )
-    # 画像を読みこんで、画像オブジェクトを作る。
     File.open("./app/assets/images/candy.jpg") do |file|
       product.image = file
     end
-
-
-    # 画像のidを取得できる。
     product.image_id = product.image.id
-
     product.save
   end
 
-
+  #カートサンプル
   CartItem.create!(
     product_id: "1",
     customer_id: "1",
