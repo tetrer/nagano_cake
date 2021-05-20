@@ -1,5 +1,7 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
+  include ApplicationHelper
+
   def index
     @cart_items = current_customer.cart_items
     if @cart_items.blank?

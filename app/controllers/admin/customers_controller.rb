@@ -1,30 +1,23 @@
-class Public::CustomersController < ApplicationController
-  before_action :authenticate_customer!
+class Admin::CustomersController < ApplicationController
+  def index
+    @customers = Customer.all
+    @customers = Customer.page(params[:page])
+  end
+
   def show
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     render "edit"
   end
 
   def update
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    render "show"
+    redirect_to admin_customer_path(@customer.id)
   end
-
-  def quit
-  end
-
-  def out
-    customer = current_customer
-    customer.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
-  end
-
 
   private
 
@@ -36,8 +29,8 @@ class Public::CustomersController < ApplicationController
                                      :postal_code,
                                      :address,
                                      :phone_number,
-                                     :email)
+                                     :email,
+                                     :is_deleted)
   end
-
 
 end
