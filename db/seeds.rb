@@ -47,28 +47,46 @@
     {name: "キャンディ"}
   ])
 
-
-
-  6.times do |n|
+  # 商品サンプル
+  2.times do |n|
+    n = n + 1
     product = Product.new(
       genre_id: 1,
-      name: "ショートケーキ#{n + 1}",
-      description: "大粒イチゴのショートケーキ#{n + 1}",
+      name: "ショートケーキ#{n}",
+      description: "大粒イチゴのショートケーキ#{n}",
       price: "#{400 + (n * 50)}",
       is_valid: [['販売中', true], ['売切れ', false]],
     )
     # 画像を読みこんで、画像オブジェクトを作る。
-    File.open("./app/assets/images/cake.jpg") do |file|
+    File.open("./app/assets/images/cake#{n}.jpg") do |file|
       product.image = file
     end
-
 
     # 画像のidを取得できる。
     product.image_id = product.image.id
 
     product.save
   end
+  2.times do |n|
+    n = n + 1
+    m = n + 2
+    product = Product.new(
+      genre_id: 1,
+      name: "チョコレートケーキ#{m}",
+      description: "チョコ好きにはたまらないチョコレートケーキ#{m}",
+      price: "#{350 + (n * 50)}",
+      is_valid: [['販売中', true], ['売切れ', false]],
+    )
+    # 画像を読みこんで、画像オブジェクトを作る。
+    File.open("./app/assets/images/cake#{m}.jpg") do |file|
+      product.image = file
+    end
 
+    # 画像のidを取得できる。
+    product.image_id = product.image.id
+
+    product.save
+  end
 
   4.times do |n|
     product = Product.new(

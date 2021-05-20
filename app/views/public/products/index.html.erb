@@ -9,7 +9,7 @@
         <% @products.each do |product| %>
           <div class= "product-box">
             <%= link_to product_path(product) do %>
-              <%= attachment_image_tag(product, :image, size: "250x200", format: 'jpeg' ,fallback: "cake.jpg") %></br>
+              <%= attachment_image_tag(product, :image, size: "250x200", format: 'jpeg' ,fallback: "cake.jpg", class:"rounded") %></br>
             <% end %>
             <%= link_to product.name, product_path(product) %></br>
             ¥ <%= product.price %>
