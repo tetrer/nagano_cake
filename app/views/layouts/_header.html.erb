@@ -1,7 +1,7 @@
 <header class="mb-5">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <% if admin_signed_in? %>
-        <%= link_to "ながのCAKE", root_path, class: "navbar-brand fas fa-birthday-cake" %>
+        <%= link_to "ながのCAKE", admin_orders_path, class: "navbar-brand fas fa-birthday-cake" %>
       <% else %>
         <%= link_to "ながのCAKE", root_path, class: "navbar-brand fas fa-birthday-cake" %>
       <% end %>
@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto navbar-light bg-light">
           <% if customer_signed_in? %>
-            <li>ようこそ、<%= full_name(current_customer) %>さん！</li>
+            <li class="customer_name mr-4">ようこそ、<%= full_name(current_customer) %>さん！</li>
             <li><%= link_to "マイページ", customers_path, class: "btn" %></li>
             <li><%= link_to "商品一覧", products_path, class: "btn" %></li>
             <li><%= link_to "カート",  cart_items_path, class: "btn" %></li>
