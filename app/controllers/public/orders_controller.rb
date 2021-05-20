@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   include ApplicationHelper
-
+  
   def new
     @order = Order.new
     @addresses = Address.where(customer: current_customer)

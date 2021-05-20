@@ -1,2 +1,2 @@
-$('tbody.genre').append('<tr><td class="align-middle"><%= @genre.name %></td><td></td><td><%= link_to "編集する", edit_admin_genre_path(@genre.id), class: "btn btn-success" %></td></tr>');
+$('tbody.genre').append('<tr><td class="align-middle"><%= @genre.name %></td><td><%= link_to "編集する", edit_admin_genre_path(@genre.id), class: "btn btn-outline-success float-right" %></td></tr>');
 $('#genre_name').val("");
