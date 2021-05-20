@@ -26,6 +26,19 @@
     )
   end
 
+  Customer.create!(
+    first_name: "志多男",
+    last_name: "大海",
+    kana_first_name: "シタオ",
+    kana_last_name: "タイカイ",
+    postal_code: "1234567",
+    address: "退会都退会区退会町1丁目12-34",
+    phone_number: "08012345678",
+    email: "taikai@test.com",
+    password: "123456",
+    is_deleted: true
+  )
+
 
   Genre.create!([
     {name: "ケーキ"},
@@ -135,4 +148,3 @@
     quantity: "1"
   )
 
- 
