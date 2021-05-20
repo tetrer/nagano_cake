@@ -25,8 +25,13 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
-    redirect_to addresses_path
+    if @address.update(address_params)
+      flash[:success] = "配送先を更新しました。"
+      redirect_to addresses_path
+    else
+      flash[:alert] = "配送先を更新できませんでした。"
+      render "edit"
+    end
   end
 
   def destroy
