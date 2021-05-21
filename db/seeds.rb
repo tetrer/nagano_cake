@@ -56,7 +56,7 @@
       name: "ショートケーキ#{n}",
       description: "大粒イチゴのショートケーキ#{n}",
       price: 400 + (n * 50),
-      is_valid: true
+      is_valid: true                                          #trueは販売中、falseは販売停止
     )
     File.open("./app/assets/images/cake#{n}.jpg") do |file|   # 画像を読みこんで、画像オブジェクトを作る。
       product.image = file
@@ -145,13 +145,37 @@
 
   #カートサンプル
   CartItem.create!(
-    product_id: "1",
-    customer_id: "1",
-    quantity: "2"
+    product_id: 1,
+    customer_id: 1,
+    quantity: 2
   )
 
   CartItem.create!(
-    product_id: "3",
-    customer_id: "1",
-    quantity: "1"
+    product_id: 3,
+    customer_id: 1,
+    quantity: 1
   )
+
+  #注文履歴サンプル
+  Order.create!(
+    customer_id: 1,
+    total_price: 2340,
+    payment_method: 0,
+    name: "姓1名1",
+    postal_code: "1234567",
+    address: "東京都渋谷区神南1丁目19-11 パークウェースクエア24階1",
+    order_status: "入金待ち"
+  )
+  OrderDetail.create!(
+    order_id: 1,
+    product_id: 1,
+    quantity: 2,
+    subtotal_price: 990
+  )
+  OrderDetail.create!(
+    order_id: 1,
+    product_id: 3,
+    quantity: 1,
+    subtotal_price: 550
+  )
+
