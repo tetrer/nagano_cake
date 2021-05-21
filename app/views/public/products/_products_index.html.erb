@@ -5,7 +5,7 @@
         <%= attachment_image_tag(product, :image, size: "250x200", format: 'jpeg' ,fallback: "cake.jpg") %></br>
       <% end %>
       <%= link_to product.name, product_path(product) %></br>
-      ¥ <%= product.price %>
+      ¥ <%= product.price.to_s(:delimited) %>
     </div>
   <% end %>
 </div>
