@@ -1,6 +1,6 @@
-<div class="form-group">
-  <%= f.label "商品画像", class:"col-sm-3" %>
-  <%= f.attachment_field :image, class:"form-control-file image" %>
+<div class="form-group" style="display:inline-flex">
+  <%= f.label "商品画像", class:"col-3" %>
+  <span style="margin-left: 8px;"><%= f.attachment_field :image, class:"col-sm-12 form-control-file image"%></spam>
 </div>
 
 <div class="form-group">
@@ -10,7 +10,7 @@
 
 <div class="form-group">
   <%= f.label "商品説明", class:"col-sm-3" %>
-  <%= f.text_area :description, class:"col-sm-8" %>
+  <%= f.text_area :description, class:"col-sm-8", size:"10"%>
 </div>
 
 <div class="form-group">
@@ -26,5 +26,5 @@
 <div class="form-group">
   <%= f.label "販売ステータス", class:"col-sm-4"%>
   <label><%= f.radio_button :is_valid, "true", checked: true %> 販売中 </label>
-  <label><%= f.radio_button :is_valid, "false" %> 販売停止中 </label>
+  <label style="margin-left: 30px;"><%= f.radio_button :is_valid, "false" %> 販売停止中 </label>
 </div>

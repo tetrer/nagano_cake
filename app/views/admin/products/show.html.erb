@@ -10,24 +10,24 @@
       <div class="product-group">
         <label class="col-sm-4">商品名</label>
         <%= @product.name %>
-      </div>
+      </div></br>
 
       <div class="product-description">
         <label class="col-sm-4">商品説明</label>
           <%= @product.description %>
-      </div>
+      </div></br>
 
       <div class="product-genres">
          <label class="col-sm-4">ジャンル</label>
          <%= @product.genre.name %>
-      </div>
+      </div></br>
 
       <div class="product-price-group">
         <label class="col-sm-4">
           税込価格</br>(税抜価格)
         </label>
           <span class="h5">¥ <%= tax_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>) 円</span>
-      </div>
+      </div></br>
 
       <div class="product-status">
         <label class="col-sm-4">
@@ -40,7 +40,7 @@
         <% end %>
       </div>
       <div class="text-center" style="margin-top:60px;">
-　　　 <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-sm btn-success" %></td>
+　　　 <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-lg btn-success" %></td>
 　　　</div>
     </div>
   </div>
