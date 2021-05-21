@@ -125,6 +125,7 @@
       name: "プリン#{n}",
       description: "口どけなめらかなプリン#{n}",
       price: 200 + (n * 50),
+      is_valid: true
     )
     File.open("./app/assets/images/pudding1.jpg") do |file|
       product.image = file
@@ -140,6 +141,7 @@
       name: "プリン#{n}",
       description: "まるで雪を食べているような口どけなめらかプリン#{n}",
       price: 200 + (n * 50),
+      is_valid: true
     )
     File.open("./app/assets/images/pudding2.jpg") do |file|
       product.image = file
