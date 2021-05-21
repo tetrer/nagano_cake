@@ -1,6 +1,5 @@
 class Public::ProductsController < ApplicationController
   include ApplicationHelper
-  before_action :authenticate_customer!, only: [:show]
 
   def index
     @genres = Genre.all
