@@ -15,9 +15,9 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     if @order.update(order_params)
-      if @order.order_status == 1
+      if @order.order_status == "入金確認"
         @order.order_details.each do |order|
-          order.update(production_status:1)
+          order.update(production_status: 1)
         end
       end
     end
