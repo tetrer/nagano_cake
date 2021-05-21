@@ -123,3 +123,30 @@ footer {
   margin-top: 100px;
   font-size: 20px;
 }
+// 売切商品
+.sold-out, .sold-out-lg {
+  position: relative;
+}
+.sold-out {
+  position: relative;
+  height: 200px;
+}
+.sold-out-lg {
+  position: relative;
+  width: 400px;
+}
+.sold-out img, .sold-out-lg img {
+  opacity: 0.5;
+  display: block;
+}
+.sold-out p, .sold-out-lg p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
