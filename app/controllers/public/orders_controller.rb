@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   include ApplicationHelper
-  
+  before_action :authenticate_customer!
+
   def new
     @order = Order.new
     @addresses = Address.where(customer: current_customer)
@@ -73,7 +74,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.order(created_at: :desc)
   end
 
 	def show
@@ -91,4 +92,5 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:order).permit(:postal_code, :address, :name)
   end
+
 end
