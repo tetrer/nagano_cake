@@ -163,7 +163,7 @@
     product.image_id = product.image.id
     product.save
   end
-  
+
   2.times do |n|
     n = n + 1
     product = Product.new(
@@ -184,7 +184,7 @@
     n = n + 1
     product = Product.new(
       genre_id: 4,
-      name: "キャンディ#{n}",
+      name: "りんご飴#{n}",
       description: "小腹が空いたときにピッタリ!#{n}",
       price: 120 + (n * 50),
       is_valid: true
@@ -195,6 +195,39 @@
     product.image_id = product.image.id
     product.save
   end
+
+  2.times do |n|
+    n = n + 1
+    product = Product.new(
+      genre_id: 4,
+      name: "いちご飴#{n}",
+      description: "小腹が空いたときにピッタリ!#{n}",
+      price: 120 + (n * 50),
+      is_valid: true
+    )
+    File.open("./app/assets/images/candy2.jpg") do |file|
+      product.image = file
+    end
+    product.image_id = product.image.id
+    product.save
+  end
+
+  2.times do |n|
+    n = n + 1
+    product = Product.new(
+      genre_id: 4,
+      name: "ぶどう飴#{n}",
+      description: "小腹が空いたときにピッタリ!#{n}",
+      price: 120 + (n * 50),
+      is_valid: true
+    )
+    File.open("./app/assets/images/candy3.jpg") do |file|
+      product.image = file
+    end
+    product.image_id = product.image.id
+    product.save
+  end
+
 
   #カートサンプル
   CartItem.create!(
