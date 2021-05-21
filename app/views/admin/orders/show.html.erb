@@ -7,8 +7,7 @@
 
         <div class="field">
           <label class="col-sm-4">購入者</label>
-          <!--会員詳細へパスを指定-->
-          <%= link_to @order.name %>
+          <%= link_to @order.name, admin_customer_path(@order.id) %>
         </div>
 
         <div class="field">
