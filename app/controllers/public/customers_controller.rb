@@ -1,10 +1,5 @@
 class Public::CustomersController < ApplicationController
-<<<<<<< HEAD
-  # before_action :correct_customer, only: [:edit, :update]
-
-=======
   before_action :authenticate_customer!
->>>>>>> develop
   def show
     @customer = current_customer
   end
