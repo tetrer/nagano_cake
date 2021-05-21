@@ -3,12 +3,6 @@ Rails.application.routes.draw do
   root 'public/homes#top'
   get 'about' => 'public/homes#about'
 
-  # namespace :admin do
-  #   get 'customers/index'
-  #   get 'customers/show'
-  #   get 'customers/edit'
-  #   get 'customers/update'
-  # end
   namespace :admin do
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
@@ -18,10 +12,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
+    resources :products, only: [:index, :show]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    resources :products, only: [:index, :show]
-
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
         post 'confirm'
@@ -32,7 +25,6 @@ Rails.application.routes.draw do
       collection do
         get 'quit'
         patch 'out'
-
       end
     end
   end
