@@ -25,7 +25,7 @@
       password: "123456"
     )
   end
-  
+
   #退会した会員サンプル
   Customer.create!(
     first_name: "志多男",
@@ -55,8 +55,8 @@
       genre_id: 1,
       name: "ショートケーキ#{n}",
       description: "大粒イチゴのショートケーキ#{n}",
-      price: "#{400 + (n * 50)}",
-      is_valid: [['販売中', true], ['売切れ', false]],
+      price: 400 + (n * 50),
+      is_valid: true
     )
     File.open("./app/assets/images/cake#{n}.jpg") do |file|   # 画像を読みこんで、画像オブジェクトを作る。
       product.image = file
@@ -64,7 +64,7 @@
     product.image_id = product.image.id                       # 画像のidを取得できる。
     product.save
   end
-  
+
   2.times do |n|
     n = n + 1
     m = n + 2
@@ -72,8 +72,8 @@
       genre_id: 1,
       name: "チョコレートケーキ#{m}",
       description: "チョコ好きにはたまらないチョコレートケーキ#{m}",
-      price: "#{350 + (n * 50)}",
-      is_valid: [['販売中', true], ['売切れ', false]],
+      price: 350 + (m * 50),
+      is_valid: true
     )
     File.open("./app/assets/images/cake#{m}.jpg") do |file|
       product.image = file
@@ -81,14 +81,28 @@
     product.image_id = product.image.id
     product.save
   end
-  
+
+  #販売停止商品サンプル
+  product = Product.new(
+    genre_id: 1,
+    name: "チーズケーキ5",
+    description: "コスパが良いと大好評なチーズケーキ",
+    price: 180,
+    is_valid: false
+  )
+  File.open("./app/assets/images/cake5.jpg") do |file|
+    product.image = file
+  end
+  product.image_id = product.image.id
+  product.save
+
   4.times do |n|
+    n = n + 1
     product = Product.new(
       genre_id: 2,
-      name: "プリン#{n + 1}",
-      description: "口どけなめらかなプリン#{n + 1}",
-      price: "#{200 + (n * 50)}",
-      is_valid: [['販売中', true], ['売切れ', false]],
+      name: "プリン#{n}",
+      description: "口どけなめらかなプリン#{n}",
+      price: 200 + (n * 50),
     )
     File.open("./app/assets/images/pudding.jpg") do |file|
       product.image = file
@@ -98,12 +112,13 @@
   end
 
   5.times do |n|
+    n = n + 1
     product = Product.new(
       genre_id: 3,
-      name: "焼き菓子#{n + 1}",
-      description: "香ばしい焼き菓子#{n + 1}",
-      price: "#{200 + (n * 50)}",
-      is_valid: [['販売中', true], ['売切れ', false]],
+      name: "焼き菓子#{n}",
+      description: "香ばしい焼き菓子#{n}",
+      price: 200 + (n * 50),
+      is_valid: true
     )
     File.open("./app/assets/images/cookie.jpg") do |file|
       product.image = file
@@ -113,12 +128,13 @@
   end
 
   3.times do |n|
+    n = n + 1
     product = Product.new(
       genre_id: 4,
-      name: "キャンディ#{n + 1}",
-      description: "小腹が空いたときにピッタリ!#{n + 1}",
-      price: "#{120 + (n * 50)}",
-      is_valid: [['販売中', true], ['売切れ', false]],
+      name: "キャンディ#{n}",
+      description: "小腹が空いたときにピッタリ!#{n}",
+      price: 120 + (n * 50),
+      is_valid: true
     )
     File.open("./app/assets/images/candy.jpg") do |file|
       product.image = file
@@ -139,4 +155,3 @@
     customer_id: "1",
     quantity: "1"
   )
-
