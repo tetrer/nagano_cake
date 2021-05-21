@@ -2,8 +2,6 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
   include ApplicationHelper
 
-  before_action :authenticate_admin!
-
   def index
     @orders = Order.all.page(params[:page]).per(10)
   end
@@ -15,9 +13,17 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+
     if @order.update(order_params)
-      redirect_to admin_order_path(@order)
+      if @order.order_status == "入金確認"
+        @order.order_details.each do |order|
+          order.update(production_status: 1)
+        end
+      end
     end
+    flash[:notice] = "注文ステータスを変更しました"
+    redirect_to admin_order_path(@order)
+
   end
 
   private

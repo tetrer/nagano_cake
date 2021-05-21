@@ -1,6 +1,5 @@
 class Public::OrdersController < ApplicationController
   include ApplicationHelper
-
   before_action :authenticate_customer!
 
   def new

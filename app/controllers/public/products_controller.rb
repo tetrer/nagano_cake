@@ -1,11 +1,11 @@
 class Public::ProductsController < ApplicationController
+  include ApplicationHelper
   def index
     @genres = Genre.all
   end
 
   def show
     @product = Product.find(params[:id])
-    # @product.save
     @cart_item = CartItem.new
   end
 
