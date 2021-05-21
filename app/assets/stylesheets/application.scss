@@ -196,3 +196,28 @@ select {
     2.5em 2.5em;
   background-repeat: no-repeat;
 }
+
+// 管理者側新商品登録ボタンの装飾
+.plus-button {
+  color: orange;
+}
+
+// ページリンクの装飾
+.pagination {
+  margin: auto;
+  text-align: center;
+}
+
+.pagination a {
+  background-color: yellow;
+  text-decoration: none;
+}
+
+.pagination * {
+  color:　#F0F;
+  margin: 0 4px;
+  text-decoration: none;
+  padding: 2px 0px;
+  border-radius: 2px;
+  font-family: 'Nunito', sans-serif;
+}

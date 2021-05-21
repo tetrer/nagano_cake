@@ -6,7 +6,7 @@
       <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg") %>
     </div>
 
-    <div class= "col-md-6" style="margin-top: 40px;">
+    <div class= "col-md-7" style="margin-top: 40px;">
       <div class="product-group">
         <label class="col-sm-4">商品名</label>
         <%= @product.name %>
@@ -39,8 +39,8 @@
       	  <span class="text-muted">販売停止中</span>
         <% end %>
       </div>
-      <div class="text-center" style="margin-top:60px;">
-　　　 <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-lg btn-success" %></td>
+      <div class="text-left" style="margin-top:60px;">
+　　　 <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-lg btn btn-outline-success" %></td>
 　　　</div>
     </div>
   </div>
