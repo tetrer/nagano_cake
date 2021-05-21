@@ -178,26 +178,84 @@
     quantity: 1
   )
 
-  #注文履歴サンプル
-  Order.create!(
-    customer_id: 1,
-    total_price: 2340,
-    payment_method: 0,
-    name: "姓1名1",
-    postal_code: "1234567",
-    address: "東京都渋谷区神南1丁目19-11 パークウェースクエア24階1",
-    order_status: "入金待ち"
-  )
-  OrderDetail.create!(
-    order_id: 1,
-    product_id: 1,
-    quantity: 2,
-    subtotal_price: 990
-  )
-  OrderDetail.create!(
-    order_id: 1,
-    product_id: 3,
-    quantity: 1,
-    subtotal_price: 550
-  )
+  #注文サンプル
+  4.times do |n|
+    n = n + 1
+    Order.create!(
+      customer_id: n,
+      total_price: 2340,
+      payment_method: 0,
+      name: "姓#{n}名#{n}",
+      postal_code: "1234567",
+      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア24階#{n}",
+      order_status: 0           #入金待ちのステータス
+    )
+    OrderDetail.create!(
+      order_id: n,
+      product_id: 1,
+      quantity: 2,
+      subtotal_price: 990    
+                                #デフォルトで着手不可ステータス
+    )
+    OrderDetail.create!(
+      order_id: n,
+      product_id: 3,
+      quantity: 1,
+      subtotal_price: 550
+    )
+  end
+  
+  #会員1の注文 入金確認したが制作開始していないサンプル
+  #会員1の注文 制作開始したサンプル
+  #会員1の注文 制作完了したサンプル
+  3.times do |n|
+    n = n + 1
+    Order.create!(
+      customer_id: 1,
+      total_price: 2340,
+      payment_method: 0,
+      name: "姓1名1",
+      postal_code: "1234567",
+      address: "東京都渋谷区神南1丁目19-11 パークウェースクエア24階1",
+      order_status: n       #入金確認、制作中、発送準備のステータス
+    )
+    OrderDetail.create!(
+      order_id: 4 + n,
+      product_id: 1,
+      quantity: 2,
+      subtotal_price: 990,
+      production_status: n  #制作待ち、製作中、制作完了のステータス
+    )
+    OrderDetail.create!(
+      order_id: 4 + n,
+      product_id: 3,
+      quantity: 1,
+      subtotal_price: 550,
+      production_status: n
+    )
+  end
 
+#会員1の注文 発送済みのサンプル
+Order.create!(
+  customer_id: 1,
+  total_price: 2340,
+  payment_method: 0,
+  name: "姓1名1",
+  postal_code: "1234567",
+  address: "東京都渋谷区神南1丁目19-11 パークウェースクエア24階1",
+  order_status: 4
+)
+OrderDetail.create!(
+  order_id: 8,
+  product_id: 1,
+  quantity: 2,
+  subtotal_price: 990,
+  production_status: 3
+)
+OrderDetail.create!(
+  order_id: 8,
+  product_id: 3,
+  quantity: 1,
+  subtotal_price: 550,
+  production_status: 3
+)
