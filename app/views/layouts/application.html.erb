@@ -12,7 +12,7 @@
 
   <body>
     <div class="content">
-      <%= render 'layouts/header' %>
+      <%= render 'layouts/header', genres: @genres %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

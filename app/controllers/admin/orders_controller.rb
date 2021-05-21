@@ -1,7 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
   include ApplicationHelper
-  # before_action :authenticate_admin!
 
   def index
     @orders = Order.all.page(params[:page]).per(10)
@@ -17,6 +16,7 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     flash[:notice] = "注文ステータスを変更しました"
     redirect_to admin_order_path(@order)
+
   end
 
   private

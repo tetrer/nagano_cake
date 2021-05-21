@@ -1,7 +1,7 @@
 class Admin::OrderDetailsController < ApplicationController
   before_action :authenticate_admin!
   include ApplicationHelper
-  # before_action :authenticate_admin!
+  
 
   def update
     @order_detail = OrderDetail.find(params[:id])

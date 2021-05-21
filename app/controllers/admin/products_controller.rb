@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   include ApplicationHelper
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @products = Product.all.page(params[:page]).per(10)
