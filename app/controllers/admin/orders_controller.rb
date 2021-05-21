@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
   include ApplicationHelper
 
   before_action :authenticate_admin!
