@@ -39,10 +39,10 @@ footer {
   height: 100px;
 }
 
-フラッシュメッセージ
+// フラッシュメッセージ
 #notice {
   color: green;
-
+}
 // スタイリッシュな四角形クラス
 .triangle {
   display: block;
@@ -52,4 +52,9 @@ footer {
   border-right: 50px solid #ccc;
   border-left: 50px solid #bbb;
   border-bottom: 50px solid #aaa;
+}
+
+.product-price{
+  margin-top: 100px;
+  font-size: 20px;
 }
