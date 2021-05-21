@@ -148,7 +148,7 @@
     product.save
   end
 
-  5.times do |n|
+  3.times do |n|
     n = n + 1
     product = Product.new(
       genre_id: 3,
@@ -157,7 +157,23 @@
       price: 200 + (n * 50),
       is_valid: true
     )
-    File.open("./app/assets/images/cookie.jpg") do |file|
+    File.open("./app/assets/images/cookie1.jpg") do |file|
+      product.image = file
+    end
+    product.image_id = product.image.id
+    product.save
+  end
+  
+  2.times do |n|
+    n = n + 1
+    product = Product.new(
+      genre_id: 3,
+      name: "イチゴタルト#{n}",
+      description: "イチゴたっぷりな良いタルト#{n}",
+      price: 200 + (n * 50),
+      is_valid: true
+    )
+    File.open("./app/assets/images/tart1.jpg") do |file|
       product.image = file
     end
     product.image_id = product.image.id
@@ -173,7 +189,7 @@
       price: 120 + (n * 50),
       is_valid: true
     )
-    File.open("./app/assets/images/candy.jpg") do |file|
+    File.open("./app/assets/images/candy1.jpg") do |file|
       product.image = file
     end
     product.image_id = product.image.id
