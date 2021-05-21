@@ -1,6 +1,5 @@
 class Public::ProductsController < ApplicationController
   include ApplicationHelper
-
   def index
     @genres = Genre.all
   end
