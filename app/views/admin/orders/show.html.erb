@@ -35,17 +35,17 @@
 
       <%= form_with( model: @order, url: admin_order_path, method: :patch, local:true) do |f| %>
     　　　<div class="form-group">
-    　　　  <div class="col-md-3">注文ステータス</div>
-    　　　  <div class="col-md-9">
-    　　　    <%= f.select :order_status, Order.order_statuses.keys %>
-    　　　    <%= f.submit "更新", class:"btn btn-success" %>
-    　　　  </div>
-    　　　</div>
-    　  <% end %>
+    　　　　  <div class="col-md-3">注文ステータス</div>
+    　　　　  <div class="col-md-9">
+    　　　 　   <%= f.select :order_status, Order.order_statuses.keys %>
+    　　　 　   <%= f.submit "更新", class:"btn btn-success" %>
+    　　　　  </div>
+    　　　　</div>
+      <% end %>
 
 
-    　  <div class="order_details-table col-md-8">
-    　    <table class='table'>
+      <div class="order_details-table col-md-8">
+    　   <table class='table'>
           <thead>
             <tr>
               <th>商品名</th>
@@ -72,10 +72,10 @@
             <% end %>
           </tbody>
         </table>
-    　  </div>
+      </div>
 
-    　  <div class="billing-amount">
-    　    <div class="field">
+      <div class="billing-amount">
+    　   <div class="field">
           <div class="col-md-4">商品合計</div>
           <div class="col-md-4"><%= total_price(@order_details).to_s(:delimited) %></div>
         </div>
@@ -89,7 +89,7 @@
           <div class="col-md-4">請求金額合計</div>
           <div class="col-md-4"><%= @order.total_price.to_s(:delimited) %></div>
         </div>
-    　  </div>
+      </div>
 
     </div>
   </div>
