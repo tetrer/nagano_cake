@@ -177,8 +177,6 @@ select {
   -moz-appearance: none;
 }
 
-
-
 /* arrows */
 
 select {
@@ -220,4 +218,30 @@ select {
   padding: 2px 0px;
   border-radius: 2px;
   font-family: 'Nunito', sans-serif;
+}
+
+// 管理者注文詳細画面
+
+.order-derails-group{
+  margin-top: 30px;
+}
+
+.billing-amount-group {
+  margin-left:  100px;
+  margin-top: 80px;
+}
+
+.billing-label {
+  margin-right: 70px;
+  font-size: 18px;
+  font-weight:bolder;
+}
+
+.billing-group {
+  margin: 20px 0 0 50px;
+}
+
+.total-billing {
+  font-size: 18px;
+  font-weight:bolder;
 }
