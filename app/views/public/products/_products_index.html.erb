@@ -15,7 +15,7 @@
       <% end %>
 
       <%= link_to product.name, product_path(product) %></br>
-      ¥ <%= product.price %>
+      ¥ <%= product.price.to_s(:delimited) %>
     </div>
   <% end %>
 </div>

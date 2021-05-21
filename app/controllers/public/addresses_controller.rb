@@ -2,16 +2,21 @@ class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
   def index
     @address_new = Address.new
-    # @addresses = Address.where(customer_id: 'current_customer_id')   #テスト時はログインしてないのでコメントアウト中
-    @addresses = Address.where(customer_id: "1")   #テスト時用の記述（本番は削除）
+    @addresses = Address.where(customer_id: current_customer.id)
   end
 
   def create
     @address = Address.new(address_params)
-    # @address.customer_id = current_customer_id   #テスト時はログインしてないのでコメントアウト中
-    @address.customer_id = "1"   #テスト時用の記述（本番は削除）
-    @address.save
-    redirect_to addresses_path
+    @address.customer_id = current_customer.id
+    if @address.save
+      flash[:success] = "配送先を登録しました。"
+      redirect_to addresses_path
+    else
+      flash[:alert] = "配送先を登録できませんでした。"
+      @addresses = Address.where(customer_id: current_customer.id)
+      redirect_to addresses_path
+    end
+
   end
 
   def edit
@@ -20,8 +25,13 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
-    redirect_to addresses_path
+    if @address.update(address_params)
+      flash[:success] = "配送先を更新しました。"
+      redirect_to addresses_path
+    else
+      flash[:alert] = "配送先を更新できませんでした。"
+      render "edit"
+    end
   end
 
   def destroy

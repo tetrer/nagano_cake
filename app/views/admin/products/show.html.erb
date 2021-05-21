@@ -1,35 +1,47 @@
 <div class= "container">
+  <p id="notice"><%= notice %></p>
   <div class= "row">
-    <div class= "col-md-5 col-md-offset-1">
+    <div class= "col-md-5">
       <h2>商品詳細</h2>
       <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg") %>
     </div>
 
-    <div class= "col-md-6">
-      商品名 <%= @product.name %></br>
-
-      <div class="product-description">
-        商品説明 <%= @product.description %><br>
+    <div class= "col-md-6" style="margin-top: 40px;">
+      <div class="product-group">
+        <label class="col-sm-4">商品名</label>
+        <%= @product.name %>
       </div>
 
-      ジャンル <%= @product.genre_id %>
+      <div class="product-description">
+        <label class="col-sm-4">商品説明</label>
+          <%= @product.description %>
+      </div>
 
-      <div class="product-price">
-        税込価格                    
-        (税抜価格)
-        ¥ <%= (@product.price * 1.1).round %>(<%= @product.price %>)円
+      <div class="product-genres">
+         <label class="col-sm-4">ジャンル</label>
+         <%= @product.genre.name %>
+      </div>
+
+      <div class="product-price-group">
+        <label class="col-sm-4">
+          税込価格</br>(税抜価格)
+        </label>
+          <span class="h5">¥ <%= tax_price(@product.price).to_s(:delimited) %> (<%= @product.price.to_s(:delimited) %>) 円</span>
       </div>
 
       <div class="product-status">
-        販売ステータス
+        <label class="col-sm-4">
+          販売ステータス
+        </label>
         <% if @product.is_valid == true %>
-      	  <p class="text-success">販売中</p>
+      	  <span class="text-success">販売中</span>
         <% elsif @product.is_valid == false %>
-      	  <p class="text-muted">販売停止中</p>
+      	  <span class="text-muted">販売停止中</span>
         <% end %>
       </div>
-
-　　　<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-sm btn-success" %></td>
+      <div class="text-center" style="margin-top:60px;">
+　　　 <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-sm btn-success" %></td>
+　　　</div>
     </div>
   </div>
 </div>

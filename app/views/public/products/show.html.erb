@@ -2,10 +2,10 @@
   <div class= "row">
     <div class= "col-md-5 col-md-offset-1">
       <% if @product.is_valid == true %>
-        <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg") %>
+        <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg", class: "rounded") %>
       <% else %>
         <div class="sold-out-lg">
-          <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg") %>
+          <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg", class: "rounded") %>
           <p>Sold out</p>
         </div>
       <% end %>
@@ -19,8 +19,9 @@
       </div>
 
       <div class="product-price">
-        ¥ <%= tax_price(@product.price) %> (税込)
+        ¥ <%= tax_price(@product.price).to_s(:delimited) %> (税込)
       </div>
+
       <% if customer_signed_in? %>
     　　　<%= form_with( model: [@product, @cart_item], url: cart_items_path, method: :post, local:true) do |f| %>
     　　 　  <div class="form-group">
@@ -33,7 +34,8 @@
            <% end %>
     　　 　  </div>
     　　　<% end %>
-　　　<% end %>
+　　  <% end %>
+
     </div>
   </div>
 </div>

@@ -1,28 +1,30 @@
 <div class="form-group">
-  商品画像　<%= f.attachment_field :image, class: "form-control-file image" %>
+  <%= f.label "商品画像", class:"col-sm-3" %>
+  <%= f.attachment_field :image, class:"form-control-file image" %>
 </div>
 
 <div class="form-group">
-  <%= f.label "商品名" %>
-  <%= f.text_field :name %>
+  <%= f.label "商品名", class:"col-sm-3" %>
+  <%= f.text_field :name, class:"col-sm-8" %>
 </div>
 
 <div class="form-group">
-  <%= f.label "商品説明" %>
-  <%= f.text_area :description %>
+  <%= f.label "商品説明", class:"col-sm-3" %>
+  <%= f.text_area :description, class:"col-sm-8" %>
 </div>
 
 <div class="form-group">
-  <%= f.label "ジャンル" %>
-  <%= f.select :genre_id, include_blank: "-- 選択してください --" %>
+  <%= f.label "ジャンル", class:"col-sm-3" %>
+  <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --") %>
 </div>
 
 <div class="form-group">
-  <%= f.label "税抜価格" %>
-  <%= f.text_field :price %>円
+  <%= f.label "税抜価格", class:"col-sm-3"%>
+  <%= f.text_field :price, :placeholder => "1000" %>円
 </div>
 
 <div class="form-group">
+  <%= f.label "販売ステータス", class:"col-sm-4"%>
   <label><%= f.radio_button :is_valid, "true", checked: true %> 販売中 </label>
-  <label><%= f.radio_button :is_valid, "false" %> 販売停止中</label>
+  <label><%= f.radio_button :is_valid, "false" %> 販売停止中 </label>
 </div>
