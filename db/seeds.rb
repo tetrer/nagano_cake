@@ -92,9 +92,9 @@
     m = n + 2
     product = Product.new(
       genre_id: 1,
-      name: "チョコレートケーキ#{m}",
-      description: "チョコ好きにはたまらないチョコレートケーキ#{m}",
-      price: 350 + (m * 50),
+      name: "チョコレートケーキ#{n}",
+      description: "チョコ好きにはたまらないチョコレートケーキ#{n}",
+      price: 350 + (n * 50),
       is_valid: true
     )
     File.open("./app/assets/images/cake#{m}.jpg") do |file|
@@ -107,8 +107,8 @@
   #販売停止商品サンプル(安くしすぎて在庫無くなっちゃった設定)
   product = Product.new(
     genre_id: 1,
-    name: "チーズケーキ5",
-    description: "コスパが良いと大好評なチーズケーキ",
+    name: "チーズケーキ1",
+    description: "コスパが良いと大好評なチーズケーキ1",
     price: 180,
     is_valid: false
   )
@@ -118,7 +118,7 @@
   product.image_id = product.image.id
   product.save
 
-  4.times do |n|
+   4.times do |n|
     n = n + 1
     product = Product.new(
       genre_id: 2,
@@ -126,7 +126,22 @@
       description: "口どけなめらかなプリン#{n}",
       price: 200 + (n * 50),
     )
-    File.open("./app/assets/images/pudding.jpg") do |file|
+    File.open("./app/assets/images/pudding1.jpg") do |file|
+      product.image = file
+    end
+    product.image_id = product.image.id
+    product.save
+  end
+
+  2.times do |n|
+    n = n + 1
+    product = Product.new(
+      genre_id: 2,
+      name: "プリン#{n}",
+      description: "まるで雪を食べているような口どけなめらかプリン#{n}",
+      price: 200 + (n * 50),
+    )
+    File.open("./app/assets/images/pudding2.jpg") do |file|
       product.image = file
     end
     product.image_id = product.image.id
@@ -194,7 +209,7 @@
       order_id: n,
       product_id: 1,
       quantity: 2,
-      subtotal_price: 990    
+      subtotal_price: 990
                                 #デフォルトで着手不可ステータス
     )
     OrderDetail.create!(
@@ -204,7 +219,7 @@
       subtotal_price: 550
     )
   end
-  
+
   #会員1の注文 入金確認したが制作開始していないサンプル
   #会員1の注文 制作開始したサンプル
   #会員1の注文 制作完了したサンプル
