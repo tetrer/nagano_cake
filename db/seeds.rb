@@ -47,7 +47,18 @@
       customer_id: n,
       name: "姓#{n}名#{n}のおばあちゃん",
       postal_code: "1234567",
-      address: "最果県田舎市草原町１丁目10-#{n}"
+      address: "最果県田舎市貧乏町１丁目10-#{n}"
+    )
+  end
+
+  #会員1(姓1名1)の親戚住所サンプル
+  5.times do |n|
+    n = n + 1
+    Address.create!(
+      customer_id: 1,
+      name: "姓1名1の親戚#{n}",
+      postal_code: "1234567",
+      address: "最果県都会市成金町１丁目12-3　スッゲェビル90#{n}号室"
     )
   end
 
