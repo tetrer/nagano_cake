@@ -40,6 +40,17 @@
     is_deleted: true
   )
 
+  #住所サンプル
+  4.times do |n|
+    n = n + 1
+    Address.create!(
+      customer_id: n,
+      name: "姓#{n}名#{n}のおばあちゃん",
+      postal_code: "1234567",
+      address: "最果県田舎市草原町１丁目10-#{n}"
+    )
+  end
+
   #デフォルトのジャンル
   Genre.create!([
     {name: "ケーキ"},
@@ -82,7 +93,7 @@
     product.save
   end
 
-  #販売停止商品サンプル
+  #販売停止商品サンプル(安くしすぎて在庫無くなっちゃった設定)
   product = Product.new(
     genre_id: 1,
     name: "チーズケーキ5",
