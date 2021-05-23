@@ -246,7 +246,7 @@ select {
   font-weight:bolder;
 }
 
+// エラーメッセージ時にレイアウトが崩れないようにする
 .field_with_errors {
   display: contents;
-  // もしくは diplay: inline;
 }
