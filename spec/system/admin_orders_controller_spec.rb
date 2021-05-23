@@ -27,18 +27,18 @@ describe Admin::OrdersController do
       before do
         visit admin_order_path(@order)
       end
-      
+
       context '注文ステータスのテスト' do
         it '注文ステータスを「入金確認」にすると、注文ステータスが「入金確認」、製作ステータスが「製作待ち」に更新される' do
-          
+
         end
 
         it '注文ステータスを「発送済」にすると、注文ステータスが「発送済」に更新される' do
-        
+
         end
 
         it 'ヘッダからログアウトボタンを押下すると管理者ログイン画面に遷移する' do
-        
+
         end
       end
     end
