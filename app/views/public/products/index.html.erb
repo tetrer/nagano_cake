@@ -5,7 +5,7 @@
       <nav class="navbar fixed-top genre-nav navbar-expand-lg navbar-dark">
         <ul class="navbar-nav col-7 mx-auto justify-content-between">
           <% @genres.each do |genre| %>
-            <li><%= link_to genre.name, "##{genre.name}" %></li>
+            <li><%= link_to genre.name, "#{genre.name}" %></li>
           <% end %>
         </ul>
       </nav>

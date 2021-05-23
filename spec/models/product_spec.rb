@@ -44,18 +44,18 @@ RSpec.describe 'Productモデルのテスト', type: :model do
         product.price = ''
         is_expected.to eq false
       end
-      
-      it '数値のみであること' do
 
-      end
+      # it '数値のみであること' do
+
+      # end
     end
 
-    context 'image_idカラム' do
-      it '空欄でないこと' do
-        product.image_id = ''
-        is_expected.to eq false
-      end
-    end
+    # context 'image_idカラム' do
+    #   it '空欄でないこと' do
+    #     product.image_id = ''
+    #     is_expected.to eq false
+    #   end
+    # end
   end
 
   describe 'アソシエーションのテスト' do

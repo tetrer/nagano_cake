@@ -10,4 +10,6 @@ FactoryBot.define do
     address { '東京のどこかに住んでるよ' }
     phone_number { '08012345678' }
   end
+  
+  
 end
