@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'ログイン前' do
+  
   gimei = Gimei.name
   gimei_address = Gimei.address
 
