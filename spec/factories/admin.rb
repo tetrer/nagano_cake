@@ -4,5 +4,4 @@ FactoryBot.define do
     password { 'admin_test' }
   end
 
-
 end
