@@ -20,32 +20,32 @@
 
             <tr>
               <th>氏名</th>
-              <td><%= f.text_field :last_name %>　<%= f.text_field :first_name %></td>
+              <td><%= f.text_field :last_name, id: "adminCustomerLastName" %>　<%= f.text_field :first_name, id: "adminCustomerFirstName" %></td>
             </tr>
 
             <tr>
               <th>フリガナ</th>
-              <td><%= f.text_field :kana_last_name %>　<%= f.text_field :kana_first_name %></td>
+              <td><%= f.text_field :kana_last_name, id: "adminCustomerKanaLastName" %>　<%= f.text_field :kana_first_name, id: "adminCustomerKanaFirstName" %></td>
             </tr>
 
             <tr>
               <th>郵便番号</th>
-              <td><%= f.text_field :postal_code %></td>
+              <td><%= f.text_field :postal_code, id: "adminCustomerPostalCode" %></td>
             </tr>
 
             <tr>
               <th>住所</th>
-              <td><%= f.text_field :address, size: "60x20" %></td>
+              <td><%= f.text_field :address, size: "60x20", id: "adminCustomerAddress" %></td>
             </tr>
 
             <tr>
               <th>電話番号</th>
-              <td><%= f.text_field :phone_number %></td>
+              <td><%= f.text_field :phone_number, id: "adminCustomerPhoneNumber" %></td>
             </tr>
 
             <tr>
               <th>メールアドレス</th>
-              <td><%= f.text_field :email %></td>
+              <td><%= f.text_field :email, id: "adminCustomerEmail" %></td>
             </tr>
 
             <tr>
