@@ -4,8 +4,8 @@ describe Public::ProductsController do
   before do
     @customer = create(:customer)
     visit new_customer_session_path
-    fill_in 'customer[email]', with: '1@1'
-    fill_in 'customer[password]', with: '111111'
+    fill_in 'customer[email]', with: @customer.email
+    fill_in 'customer[password]', with: @customer.password
     click_button 'ログイン'
 
     @genre = create(:genre)
@@ -35,8 +35,6 @@ describe Public::ProductsController do
 
   describe '商品詳細画面のテスト' do
     before do
-      click_link @product.image_id
-
       visit product_path(@product)
     end
 
@@ -44,14 +42,13 @@ describe Public::ProductsController do
       it '個数を選択し、カートに入れるボタンを押下するとカート画面に遷移する' do
         expect(current_path).to eq product_path(@product)
         select(value = 1, from: 'cart_item[quantity]')
-        # click_button 'カートに入れる'
-        # expect(current_path).to eq cart_items_path
-        # expect(page).to have_content 'こちらの商品は、只今売り切れです。'
+        click_button 'カートに入れる'
+        expect(current_path).to eq cart_items_path
       end
 
-      # it 'カートの中身が正しく表示されている' do
-      #   expect(current_path).to eq cart_items_path
-      # end
+      it 'カートの中身が正しく表示されている' do
+        visit cart_items_path
+      end
 
     end
   end
