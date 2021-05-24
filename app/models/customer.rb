@@ -17,4 +17,8 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+
+  def self.looks(word)
+    @customer = Customer.where("last_name LIKE?","%#{word}%")
+  end
 end
