@@ -50,7 +50,6 @@ describe Admin::ProductsController do
         fill_in 'product[name]', with: Faker::Lorem.characters(number: 8)
         fill_in 'product[description]', with: Faker::Lorem.characters(number: 20)
         select(value = "ケーキ", from: 'product[genre_id]')
-        # select(value = "ケーキ", from: @product[@genre])
         fill_in 'product[price]', with: 1000
         click_button '新規登録'
         expect(current_path).to eq '/admin/products/2'
