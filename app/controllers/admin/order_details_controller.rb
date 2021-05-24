@@ -21,7 +21,6 @@ class Admin::OrderDetailsController < ApplicationController
     else
       render "show"
     end
-
   end
 
   private
