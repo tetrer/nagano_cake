@@ -15,7 +15,7 @@
       <h2><%= @product.name %></h2></br>
 
       <div class="product-description">
-        <%= @product.description %><br>
+        <%= @product.description %>
       </div>
 
       <div class="product-price">
@@ -24,15 +24,13 @@
 
       <% if customer_signed_in? %>
     　　　<%= form_with( model: [@product, @cart_item], url: cart_items_path, method: :post, local:true) do |f| %>
-    　　 　  <div class="form-group">
-    　　　    <%= f.hidden_field :product_id, value: @product.id %>
-    　　　    <% if @product.is_valid == true %>
-    　　　    <%= f.select :quantity, options_for_select(1..10), include_blank: "個数選択" %>
-    　　　      <%= f.submit "カートに入れる", class:"btn btn-success" %>
-           <% else %>
-             <p class="text-muted">こちらの商品は、只今売り切れです。</p>
-           <% end %>
-    　　 　  </div>
+  　　　     <%= f.hidden_field :product_id, value: @product.id %>
+  　　　     <% if @product.is_valid == true %>
+  　　　       <span  class="d-flex justify-content-start"><%= f.select :quantity, options_for_select(1..10), include_blank: "個数選択" %><span>
+  　　　       <%= f.submit "カートに入れる", class:"btn btn-outline-success" %>
+  　　　     <% else %>
+            <p class="text-muted">こちらの商品は、只今売り切れです。</p>
+          <% end %>
     　　　<% end %>
 　　  <% end %>
 
