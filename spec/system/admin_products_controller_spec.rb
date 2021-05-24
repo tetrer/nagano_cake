@@ -25,15 +25,9 @@ describe Admin::ProductsController do
 
         it '登録した商品が表示されている' do
           expect(page).to have_content @product.name
-          expect(page).to have_content @product.description
           expect(page).to have_content @product.price
         end
 
-        # it '新規登録ボタンを押下すると商品新規登録画面が表示される(2商品目)' do
-        # end
-
-        # it '登録した商品が表示されている' do
-        # end
       end
 
       context '遷移先の確認' do

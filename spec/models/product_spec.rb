@@ -5,6 +5,7 @@ RSpec.describe 'Productモデルのテスト', type: :model do
     subject { product.valid? }
 
     let(:genre) { create(:genre) }
+    let(:cartItem) { create(:cartItem, customer_id: customer.id, product_id: product.id) }
     let!(:product) { build(:product, genre_id: genre.id) }
 
     context 'genre_idカラム' do
@@ -45,17 +46,9 @@ RSpec.describe 'Productモデルのテスト', type: :model do
         is_expected.to eq false
       end
 
-      # it '数値のみであること' do
-
-      # end
     end
 
-    # context 'image_idカラム' do
-    #   it '空欄でないこと' do
-    #     product.image_id = ''
-    #     is_expected.to eq false
-    #   end
-    # end
+
   end
 
   describe 'アソシエーションのテスト' do
