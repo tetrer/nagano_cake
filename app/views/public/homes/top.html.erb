@@ -1,7 +1,6 @@
 <% provide(:title, "ホーム") %>
 <div class="container">
-	<div class="row">
-		<div id="carouselExampleIndicators" class="carousel slide col-8 mx-auto slide-box rounded" data-ride="carousel">
+		<div id="carouselExampleIndicators" class="carousel slide mx-auto slide-box rounded mx-auto" data-ride="carousel">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -9,13 +8,13 @@
 		  </ol>
 		  <div class="carousel-inner">
 		    <div class="carousel-item active">
-		    	<%= image_tag 'cake1.jpg', alt: 'First slide', size: '840x420' %>
+		    	<%= image_tag 'slide-image1.png', alt: 'First slide', class: 'slide-image' %>
 		    </div>
 		    <div class="carousel-item">
-		      <%= image_tag 'cake5.jpg', alt: 'Second slide', size: '840x420' %>
+		      <%= image_tag 'slide-image2.png', alt: 'Second slide', class: 'slide-image' %>
 		    </div>
 		    <div class="carousel-item">
-		      <%= image_tag 'cake2.jpg', alt: 'Third slide', size: '840x420' %>
+		      <%= image_tag 'slide-image3.png', alt: 'Third slide', class: 'slide-image' %>
 		    </div>
 		  </div>
 		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -27,10 +26,11 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
+	<div class="row mx-auto">
 	</div>
 
 	<div class="row">
-		<div class="col-11 mx-auto">
+		<div class="col-12 mx-auto">
 			<div class="new-product-box">
 				<h3 class="text-center new-product">新着商品</h3>
 				<div class="d-flex felx-wrap justify-content-around">

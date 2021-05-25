@@ -1,5 +1,5 @@
 <div class= "container">
-  <div class= "row">
+  <div class= "row product-show">
     <div class= "col-md-6 col-md-offset-1 d-flex justify-content-center">
       <% if @product.is_valid == true %>
         <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg", class: "rounded") %>
