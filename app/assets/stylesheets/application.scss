@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bxslider
  *= require_tree .
  *= require_self
  */
@@ -21,6 +22,11 @@
   pading: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.header {
+  background-color: #fffff9;
+  border-bottom: thick double #663300;
 }
 
 .light-gray {
@@ -67,9 +73,9 @@ footer {
 .genre-nav {
   margin-top: 62px;
   color: #1E2677;
-  background: #E4EEF8;
-  border-top: 1px solid #1E2677;
-  border-bottom: 1px solid #1E2677;
+  background-color: #fffff9;
+  border-top: thick double #663300;
+  border-bottom: thick double #663300;
 }
 
 // トップへ戻るボタン
@@ -133,37 +139,7 @@ footer {
   margin-top: 100px;
   font-size: 20px;
 }
-// 売切商品
-.sold-out, .sold-out-lg {
-  position: relative;
-}
-.sold-out {
-  position: relative;
-  height: 200px;
-}
-.sold-out-lg {
-  position: relative;
-  width: 400px;
-}
-.sold-out img, .sold-out-lg img {
-  opacity: 0.5;
-  display: block;
-}
-.sold-out p, .sold-out-lg p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin: 0;
-  padding: 0;
-  color: #fff;
-}
 
-label {
-vertical-align: top;
-}
 
 
 // 個数選択のプルダウンキー装飾
@@ -270,6 +246,24 @@ select {
   color: red;
   font-size: 0.8rem;
 }
+
+.nav-title {
+  font-family: 'Dancing Script', cursive;
+}
+
+.footer {
+  background-color: #fffff9;
+  border-top: thick double #663300;
+}
+
+.admin-search {
+  padding: 4px 54px 4px 4px;
+}
+
+.search-btn {
+  margin: 8px;
+}
+
 #error_explanation {
   margin: 0 40px 20px;
 }

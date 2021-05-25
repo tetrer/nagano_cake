@@ -1,17 +1,17 @@
 <div class= "container">
-  <div class= "row">
-    <div class= "col-md-5 col-md-offset-1">
+  <div class= "row product-show">
+    <div class= "col-md-6 col-md-offset-1 d-flex justify-content-center">
       <% if @product.is_valid == true %>
         <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg", class: "rounded") %>
       <% else %>
         <div class="sold-out-lg">
           <%= attachment_image_tag(@product, :image, size: "400x300", format: 'jpeg' ,fallback: "cake.jpg", class: "rounded") %>
-          <p>Sold out</p>
+          <h3>Sold out</h3>
         </div>
       <% end %>
     </div>
 
-    <div class= "col-md-6">
+    <div class= "col-md-6 mx-auto">
       <h2><%= @product.name %></h2></br>
 
       <div class="product-description">

@@ -1,21 +1,21 @@
-<div class= "d-flex flex-wrap mb-5">
+<div class= "d-flex flex-wrap justify-content-around mb-5 genre-box">
   <% products.each do |product| %>
     <div class= "product-box">
       <% if product.is_valid == true %>
         <%= link_to product_path(product) do %>
-          <%= attachment_image_tag(product, :image, size: "250x200", format: 'jpeg' ,fallback: "cake.jpg", class: "product-effect") %></br>
+          <%= attachment_image_tag(product, :image, size: "400x320", format: 'jpeg' ,fallback: "cake.jpg", class: "product-effect") %></br>
         <% end %>
       <% else %>
         <div class="sold-out">
           <%= link_to product_path(product) do %>
-            <%= attachment_image_tag(product, :image, size: "250x200", format: 'jpeg' ,fallback: "cake.jpg", class: "product-effect") %></br>
+            <%= attachment_image_tag(product, :image, size: "400x320", format: 'jpeg' ,fallback: "cake.jpg", class: "product-effect")) %></br>
           <% end %>
-          <p>Sold out</p>
+          <h3>Sold out</h3>
         </div>
       <% end %>
 
-      <%= link_to product.name, product_path(product) %></br>
-      ¥ <%= product.price %>
+      <p class="text-center product-name-p"><%= link_to product.name, product_path(product), class: "product-name" %></p>
+      <p class="text-right product-price-p">¥ <%= product.price.to_s(:delimited) %></p>
     </div>
   <% end %>
 </div>

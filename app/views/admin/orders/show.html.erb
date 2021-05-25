@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-10">
         <h3>注文詳細履歴</h3></br>
 
         <div class="field">
@@ -17,10 +17,12 @@
 
         <div class="field">
           <label class="col-sm-4">配送先</label>
-            <p style="display:inline-flex">
-              〒<%= @order.postal_code %> <%= @order.address %></br>
-              <%= @order.name %>
-            </p>
+            〒<%= @order.postal_code %> <%= @order.address %>
+        </div>
+
+        <div class="field">
+          <label class="col-sm-4">宛名</label>
+          <%= @order.name %>
         </div>
 
         <div class="field">

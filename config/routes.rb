@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   root 'public/homes#top'
   get 'about' => 'public/homes#about'
 
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
     resources :order_details, only: [:update]
   end
+  get 'search' => 'admin/searches#search'
 
   scope module: :public do
     resources :products, only: [:index, :show]

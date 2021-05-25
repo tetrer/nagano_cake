@@ -1,3 +1,88 @@
 // Place all the styles related to the public/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.genre-name {
+  padding: 6px;
+}
+
+.genre-box {
+  margin-top: 20px;
+}
+
+.product-name-p {
+  margin: 10px 0 0 0;
+}
+
+.product-name {
+  color: #000000;
+  font-size: 1.2em;
+}
+
+.product-name:hover {
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.product-price-p {
+  margin-bottom: 50px;
+}
+
+.sold-out, .sold-out-lg {
+  position: relative;
+  height: 320px;
+}
+
+.sold-out img, .sold-out-lg img {
+  opacity: 0.5;
+  display: block;
+}
+
+.sold-out h3, .sold-out-lg h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.product-show {
+  margin-top: 50px;
+}
+
+
+// 売切商品
+// .sold-out, .sold-out-lg {
+//   position: relative;
+// }
+// .sold-out {
+//   position: relative;
+//   height: 200px;
+// }
+// .sold-out-lg {
+//   position: relative;
+//   width: 400px;
+// }
+// .sold-out img, .sold-out-lg img {
+//   opacity: 0.5;
+//   display: block;
+// }
+// .sold-out p, .sold-out-lg p {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translate(-50%,-50%);
+//   -webkit-transform: translate(-50%,-50%);
+//   transform: translate(-50%,-50%);
+//   margin: 0;
+//   padding: 0;
+//   color: #fff;
+// }
+
+// label {
+// vertical-align: top;
+// }

@@ -1,4 +1,51 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.content {
+  background-color: #fffff4;
+}
 
+.slide-box {
+  margin-top: 50px;
+  padding: 0;
+}
+
+.slide-image {
+  width: 100%;
+  height: 500px;
+}
+
+.new-product-box {
+  margin-top: 100px;
+  background-color: #fffff4;
+  border: thick double #663300;
+}
+
+.new-product {
+  padding-top: 5px;
+  margin: 20px 0 20px 0;
+}
+
+.product-name {
+  margin-bottom: 5px;
+}
+
+.product-name-link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.new-product-img:hover {
+  opacity: 0.6;
+}
+
+.products-link {
+  margin: 30px 0 30px 0;
+  font-size: 2rem;
+  background-color: #fffff4;
+  border: solid #fafafa;
+}
+
+.products-link:hover {
+  opacity: 0.6;
+}

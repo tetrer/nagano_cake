@@ -9,4 +9,8 @@ class Product < ApplicationRecord
   validates :genre_id, :name, :price, presence: true
 	validates :description, length: { maximum: 200 }, presence: true
 	validates :price, numericality: { only_integer: true }
+
+	def self.looks(word)
+		@product = Product.where("name LIKE?","%#{word}%")
+	end
 end

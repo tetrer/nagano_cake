@@ -1,3 +1,26 @@
 // Place all the styles related to the public/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title {
+  padding: 6px;
+  border: thick double #663300;
+  margin-bottom: 30px;
+}
+
+.cart-link {
+  margin-right: 50px;
+}
+
+.orders-table {
+  padding-bottom: 50px;
+}
+
+.sub-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.bottom {
+  padding-bottom: 50px;
+}
