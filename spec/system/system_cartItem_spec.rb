@@ -12,7 +12,7 @@ describe 'cartItem関連' do
   describe 'cart_itemsページ' do
     before do
       @genre = create(:genre)
-      @product1 = create(:product, genre: @genre)
+      @product1 = create(:product, genre: @genre, is_valid: true)
       @cartItem = create(:cartItem, customer: @customer)
       visit cart_items_path
     end
