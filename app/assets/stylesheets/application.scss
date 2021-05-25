@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bxslider
  *= require_tree .
  *= require_self
  */
@@ -21,6 +22,11 @@
   pading: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.header {
+  background-color: #fffff9;
+  border-bottom: thick double #663300;
 }
 
 .light-gray {
@@ -249,4 +255,13 @@ select {
 // エラーメッセージ時にレイアウトが崩れないようにする
 .field_with_errors {
   display: contents;
+}
+
+.nav-title {
+  font-family: 'Dancing Script', cursive;
+}
+
+.footer {
+  background-color: #fffff9;
+  border-top: thick double #663300;
 }

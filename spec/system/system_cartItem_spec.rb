@@ -54,8 +54,8 @@ describe 'cartItem関連' do
   describe '商品をカートに入れる' do
     before do
       @genre = create(:genre)
-      @product1 = create(:product, genre: @genre)
-      @product2 = create(:product, genre: @genre)
+      @product1 = create(:product, genre: @genre, is_valid: true)
+      @product2 = create(:product, genre: @genre, is_valid: true)
       visit product_path(@product1)
     end
     context 'productそれぞれをカートに入れる' do
@@ -92,8 +92,8 @@ describe 'cartItem関連' do
   describe '削除機能' do
     before do
       @genre = create(:genre)
-      @product1 = create(:product, genre: @genre)
-      @product2 = create(:product, genre: @genre)
+      @product1 = create(:product, genre: @genre, is_valid: true)
+      @product2 = create(:product, genre: @genre, is_valid: true)
       visit product_path(@product1)
       select(value = 1, from: 'cart_item[quantity]')
       click_button 'カートに入れる'
@@ -117,3 +117,4 @@ describe 'cartItem関連' do
     end
   end
 end
+

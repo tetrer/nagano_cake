@@ -1,16 +1,16 @@
-<header class="fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light pt-3">
+<header class="fixed-top header">
+  <nav class="navbar navbar-expand-lg navbar-light pt-3">
     <% if admin_signed_in? %>
-      <%= link_to "ながのCAKE", admin_orders_path, class: "navbar-brand fas fa-birthday-cake" %>
+      <%= link_to "NAGANO CAKE", admin_orders_path, class: "navbar-brand nav-title" %>
     <% else %>
-      <%= link_to "ながのCAKE", root_path, class: "navbar-brand fas fa-birthday-cake" %>
+      <%= link_to "NAGANO CAKE", root_path, class: "navbar-brand nav-title" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <% if customer_signed_in? %>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto navbar-light bg-light">
+        <ul class="navbar-nav ml-auto navbar-light">
           <li class="customer_name mr-4">ようこそ、<%= full_name(current_customer) %>さん！</li>
           <li><%= link_to "マイページ", customers_path, class: "btn" %></li>
           <li><%= link_to "商品一覧",   products_path, class: "btn" %></li>
@@ -21,7 +21,7 @@
 
     <% elsif admin_signed_in? %>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto navbar-light bg-light">
+        <ul class="navbar-nav ml-auto navbar-light">
           <li><%= link_to "商品一覧",     admin_products_path, class: "btn" %></li>
           <li><%= link_to "会員一覧",     admin_customers_path, class: "btn"  %></li>
           <li><%= link_to "注文履歴一覧", admin_orders_path, class: "btn" %></li>
@@ -43,11 +43,11 @@
 
     <% else %>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto navbar-light bg-light">
-          <li><%= link_to "About",    about_path, class: "btn" %></li>
-          <li><%= link_to "商品一覧", products_path, class: "btn" %></li>
-          <li><%= link_to "新規登録", new_customer_registration_path, class: "btn" %></li>
-          <li><%= link_to "ログイン", new_customer_session_path, class: "btn" %></li>
+        <ul class="navbar-nav ml-auto navbar-light">
+          <li><%= link_to "About",    about_path, class: "btn fas fa-question" %></li>
+          <li><%= link_to "商品一覧", products_path, class: "btn fas fa-cheese" %></li>
+          <li><%= link_to "新規登録", new_customer_registration_path, class: "btn fas fa-user" %></li>
+          <li><%= link_to "ログイン", new_customer_session_path, class: "btn fas fa-sign-in-alt" %></li>
         </ul>
       </div>
     <% end %>
