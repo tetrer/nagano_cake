@@ -57,8 +57,5 @@ RSpec.describe 'Orderモデルのテスト', type: :model do
       end
     end
   end
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/develop
 end
