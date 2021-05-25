@@ -37,6 +37,16 @@
   padding: 0 10px;
  }
 
+.product-effect {
+  border-radius: 3%;
+  transition: all 0.5s;
+}
+
+.product-effect:hover {
+  border-radius: 20%;
+  background-color: rgba(200,0,0,0.5);
+}
+
 .content {
   min-height: calc(100vh - 100px);
   padding-top: 100px;
@@ -225,6 +235,16 @@ select {
 // エラーメッセージ時にレイアウトが崩れないようにする
 .field_with_errors {
   display: contents;
+  input, textarea {
+    @extend .is-invalid;
+  }
+}
+
+#error_explanation ul {
+  margin: 0;
+  padding: 0;
+  color: red;
+  font-size: 0.8rem;
 }
 
 .nav-title {
@@ -242,4 +262,8 @@ select {
 
 .search-btn {
   margin: 8px;
+}
+
+#error_explanation {
+  margin: 0 40px 20px;
 }
