@@ -1,16 +1,14 @@
 <div class="row">
   <div class="col-2"></div>
-  <div class="col">
-    <h4 class="bg-light mx-auto">マイページ</h4>
-  </div>
+  <h3 class="bg-light title">マイページ</h3>
   <div class="col-8"></div>
 </div>
 
 
 <div class="row">
   <div class="col-2"></div>
-  <div class="sub_title">
-    <h4>登録情報　<%= link_to '編集する', edit_customers_path(@customer.id), class: 'btn btn-outline-success' %></h4>
+  <div class="sub-title">
+    <h4><i class="fas fa-child"></i>  登録情報　<%= link_to '編集する', edit_customers_path(@customer.id), class: 'btn btn-outline-success' %></h4>
   </div>
 </div>
 
@@ -18,7 +16,7 @@
 <div class="row">
   <div class="col-2"></div>
   <div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover table-active">
       <tbody>
         <tr>
           <th>氏名</th>
@@ -52,15 +50,15 @@
 
 <div class="row">
   <div class="col-2"></div>
-  <div class="sub_title">
-    <h4>配送先　<%= link_to '一覧を見る', addresses_path, class: 'btn btn-outline-primary' %></h4>
+  <div class="address-index-link">
+    <h4><i class="fas fa-truck"></i>  配送先　<%= link_to '一覧を見る', addresses_path, class: 'btn btn-outline-primary' %></h4>
   </div>
 </div>
 
 <div class="row">
   <div class="col-2"></div>
-  <div class="sub_title">
-    <h4>注文履歴　<%= link_to '一覧を見る', orders_path, class: 'btn btn-outline-primary' %></h4>
+  <div class="order-index-link">
+    <h4><i class="fas fa-receipt"></i>  注文履歴　<%= link_to '一覧を見る', orders_path, class: 'btn btn-outline-primary' %></h4>
   </div>
 </div>
 

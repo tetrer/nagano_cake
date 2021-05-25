@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.sub_title {
+.title {
+  padding: 6px;
+  border: thick double #663300;
+}
+
+.sub-title {
   margin: 20px 0 20px 0;
+}
+
+.address-index-link {
+  margin-top: 30px;
+}
+
+.order-index-link {
+  margin-top: 30px;
+}
+
+.table-row {
+  margin-top: 30px;
+}
+
+.quit-link {
+  margin-left: 30px;
 }
