@@ -31,6 +31,16 @@
   padding: 0 10px;
  }
 
+.product-effect {
+  border-radius: 3%;
+  transition: all 0.5s;
+}
+
+.product-effect:hover {
+  border-radius: 20%;
+  background-color: rgba(200,0,0,0.5);
+}
+
 .content {
   min-height: calc(100vh - 100px);
   padding-top: 100px;

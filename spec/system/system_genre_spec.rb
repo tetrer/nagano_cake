@@ -32,6 +32,30 @@ describe 'ジャンル関連' do
         expect(page).to have_link '編集する'
       end
     end
+
+    context '編集フォーム' do
+      before do
+        visit edit_admin_genre_path(@genre)
+      end
+      it 'ジャンル名'do
+        expect(page).to have_field 'genre[name]', with: @genre.name
+      end
+      it '編集ボタン' do
+        expect(page).to have_button '変更を保存'
+      end
+    end
   end
 
+  describe 'ジャンルの機能テスト' do
+    context '編集画面' do
+      before do
+        click_link '編集する'
+      end
+      it '編集ができるか'do
+        fill_in 'genre[name]', with: '魚介'
+        click_button '変更を保存'
+        expect(page).to have_content '魚介'
+      end
+    end
+  end
 end
