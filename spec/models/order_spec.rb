@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Orderのモデルテスト', type: :model do
-
+RSpec.describe 'Orderモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { order.valid? }
 
@@ -58,5 +57,8 @@ RSpec.describe 'Orderのモデルテスト', type: :model do
       end
     end
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/develop
 end
