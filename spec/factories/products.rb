@@ -7,4 +7,5 @@ FactoryBot.define do
     image_id { "MyString" }
     is_valid { false }
   end
+
 end
