@@ -259,4 +259,17 @@ select {
 // エラーメッセージ時にレイアウトが崩れないようにする
 .field_with_errors {
   display: contents;
+  input, textarea {
+    @extend .is-invalid;
+  }
+}
+
+#error_explanation ul {
+  margin: 0;
+  padding: 0;
+  color: red;
+  font-size: 0.8rem;
+}
+#error_explanation {
+  margin: 0 40px 20px;
 }

@@ -1,12 +1,11 @@
-# FactoryBot.define do
-#   factory :order do
-#     customer_id { 1 }
-#     freight { 1 }
-#     total_price { 1 }
-#     payment_method { 1 }
-#     name { "MyString" }
-#     postal_code { "MyString" }
-#     address { "MyString" }
-#     order_status { 1 }
-#   end
-# end
+FactoryBot.define do
+  factory :order do
+    total_price { "2340" }
+    payment_method { "クレジットカード" }
+    name { Gimei.name }
+    postal_code { '0000000' }
+    address { '東京のどこかに住んでるよ' }
+    order_status { "入金待ち" }
+    customer
+  end
+end
