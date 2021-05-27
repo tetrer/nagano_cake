@@ -1,24 +1,21 @@
-# README
+# ながのCAKE ECサイト
+DMM Webcampのチーム開発課題として作成した、長野県のお菓子屋さんのためのECサイトです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 設計概要
+## ER図
+![image](https://user-images.githubusercontent.com/78887569/119771125-25c89000-bef8-11eb-9235-060f77c66720.png)
 
-Things you may want to cover:
+## アプリケーション詳細設計図
+![image](https://user-images.githubusercontent.com/78887569/119770947-df733100-bef7-11eb-8410-4c0d0ab388ef.png)
 
-* Ruby version
+![image](https://user-images.githubusercontent.com/78887569/119771002-f4e85b00-bef7-11eb-9ac4-8565042e1b1c.png)
 
-* System dependencies
+## 開発環境
+Ruby on Rails 5.2.5 Ruby 2.6.3
 
-* Configuration
+## 開発者
+チーム テトラー
+・ コンさん　・ せとくん ・ ルイくん ・ かずき
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発期間
+2021/05/12〜2021/05/26
